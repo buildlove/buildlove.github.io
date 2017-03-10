@@ -46,7 +46,7 @@
 				<h1 class="site-name"><a href="/" title="liyang&#39;s blog">liyang&#39;s blog</a></h1>
 				<h2 class="blog-motto">Stay hungry,stay foolish.</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -92,7 +92,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-03-08T06:27:06.000Z" itemprop="datePublished">2016-03-08</time>
-    Updated:<time datetime="2016-10-13T09:50:08.000Z" itemprop="dateModified">2016-10-13</time>
+    更新日期:<time datetime="2016-10-13T09:50:08.000Z" itemprop="dateModified">2016-10-13</time>
     
   </p>
 </header>
@@ -100,7 +100,7 @@
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目錄</strong>
 		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装virtualenv"><span class="toc-number">1.</span> <span class="toc-text">安装virtualenv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装mysql"><span class="toc-number">2.</span> <span class="toc-text">安装mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#普通连接数据库的方法"><span class="toc-number">3.</span> <span class="toc-text">普通连接数据库的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动数据库mysqld-exe-–console"><span class="toc-number">3.1.</span> <span class="toc-text">启动数据库mysqld.exe –console</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建数据库test"><span class="toc-number">3.2.</span> <span class="toc-text">创建数据库test</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#普通连接数据库实现增删改查"><span class="toc-number">4.</span> <span class="toc-text">普通连接数据库实现增删改查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引用数据库模块"><span class="toc-number">4.1.</span> <span class="toc-text">引用数据库模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开数据库连接-账号-密码-数据库名称"><span class="toc-number">4.2.</span> <span class="toc-text">打开数据库连接                  账号   密码    数据库名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用cursor-方法获取操作游标"><span class="toc-number">4.3.</span> <span class="toc-text">使用cursor()方法获取操作游标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删（删除已经创建好的表tbTest）"><span class="toc-number">4.4.</span> <span class="toc-text">删（删除已经创建好的表tbTest）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增-创建数据表SQL语句"><span class="toc-number">4.5.</span> <span class="toc-text">增(创建数据表SQL语句)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改（在表中插入数据）"><span class="toc-number">4.6.</span> <span class="toc-text">改（在表中插入数据）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查-获取一条数据库打印。"><span class="toc-number">4.7.</span> <span class="toc-text">查 获取一条数据库打印。</span></a></li></ol></li></ol>
 		</div>
 		
@@ -172,20 +172,20 @@
 </section>
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目錄</strong>
   <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装virtualenv"><span class="toc-number">1.</span> <span class="toc-text">安装virtualenv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装mysql"><span class="toc-number">2.</span> <span class="toc-text">安装mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#普通连接数据库的方法"><span class="toc-number">3.</span> <span class="toc-text">普通连接数据库的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动数据库mysqld-exe-–console"><span class="toc-number">3.1.</span> <span class="toc-text">启动数据库mysqld.exe –console</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建数据库test"><span class="toc-number">3.2.</span> <span class="toc-text">创建数据库test</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#普通连接数据库实现增删改查"><span class="toc-number">4.</span> <span class="toc-text">普通连接数据库实现增删改查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引用数据库模块"><span class="toc-number">4.1.</span> <span class="toc-text">引用数据库模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开数据库连接-账号-密码-数据库名称"><span class="toc-number">4.2.</span> <span class="toc-text">打开数据库连接                  账号   密码    数据库名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用cursor-方法获取操作游标"><span class="toc-number">4.3.</span> <span class="toc-text">使用cursor()方法获取操作游标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删（删除已经创建好的表tbTest）"><span class="toc-number">4.4.</span> <span class="toc-text">删（删除已经创建好的表tbTest）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增-创建数据表SQL语句"><span class="toc-number">4.5.</span> <span class="toc-text">增(创建数据表SQL语句)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改（在表中插入数据）"><span class="toc-number">4.6.</span> <span class="toc-text">改（在表中插入数据）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查-获取一条数据库打印。"><span class="toc-number">4.7.</span> <span class="toc-text">查 获取一条数据库打印。</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 			<li><a href="/categories/database/" title="database">database<sup>1</sup></a></li>
@@ -216,7 +216,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
 		
 			<li><a href="/tags/database/" title="database">database<sup>2</sup></a></li>
@@ -254,7 +254,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
 </aside>
@@ -288,7 +288,7 @@
 		
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
 		
 		<a href="http://buildlove.github.io" target="_blank" title="Screenshot 2015">Screenshot 2015</a>
 		
