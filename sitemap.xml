@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://buildlove.github.io/2016/11/09/hexo/</loc>
+    
+    <lastmod>2019-02-27T08:34:37.375Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://buildlove.github.io/2018/04/27/es6-checked/</loc>
     
     <lastmod>2019-02-27T08:23:15.739Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://buildlove.github.io/2016/03/24/mac-python/</loc>
     
     <lastmod>2019-02-27T08:05:48.834Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://buildlove.github.io/2016/11/09/hexo/</loc>
-    
-    <lastmod>2019-02-27T08:05:04.154Z</lastmod>
     
   </url>
   
