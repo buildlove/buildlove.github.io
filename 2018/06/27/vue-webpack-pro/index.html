@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用于个人笔记">
+  <meta name="author" content="Screenshot 2015">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="一个简单的 vue 项目"/>
+  <meta property="og:description" content="用于个人笔记" />
+  <meta property="og:site_name" content="liyang&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://buildlove.github.ioundefined"/>
+  
+    <link rel="alternate" href="/atom.xml" title="liyang&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>liyang's blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">一个简单的 vue 项目</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/buildlove">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:mkdir_yang@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://www.jianshu.com/u/c4bc363ac296">
+                  
+                  简书
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Screenshot 2015</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-06-27</span>
+            <span class="time">16:26:13</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/vue/">#vue</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>老板给的面试题目<br><a id="more"></a></p>
+<p><a href="https://github.com/buildlove/vue-practice" target="_blank" rel="external">github源码</a></p>
+<p>通过一个小产品总结过去一段时间的学习。</p>
+<ul>
+<li>vue 框架</li>
+<li>webpack 打包单页面应用程序</li>
+</ul>
+<h2 id="产品效果"><a href="#产品效果" class="headerlink" title="产品效果"></a>产品效果</h2><p><img src="https://upload-images.jianshu.io/upload_images/12240257-af0d58f3a845cad5.gif?imageMogr2/auto-orient/strip" alt="1.gif"></p>
+<h2 id="需求分解"><a href="#需求分解" class="headerlink" title="需求分解"></a>需求分解</h2><p>第一页组件, 显示载入数据按钮点击之后显示第二页组件。</p>
+<p>第二页嫌疑人详细信息列表<br>    1.带滚动条, 可以上下滚动<br>    2.在嫌疑人社会关系中点击联系人时, 会自动滚动到嫌疑人详细信息列表并添加背景颜色标记。<br>    3.嫌疑人组件支持左键单击, 状态为选中</p>
+<p>第三页嫌疑人社会关系<br>    1.回退按钮, 记录每一次操作数据, 每次回退的时候删除数据。<br>    2.联系人, 选中后嫌疑人组件展示并选中列表项组件, 展示联系人详情。<br>    3.可以进一步点击联系人。 不论点击多少步都支持单步回退到起点。</p>
+<h2 id="数据字段设计"><a href="#数据字段设计" class="headerlink" title="数据字段设计"></a>数据字段设计</h2><p>嫌疑人详细信息列表</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">const Peopelist = [</div><div class="line">    &#123;name:&apos;张三&apos;,sex:&apos;男&apos;,phone:12345678&#125;,</div><div class="line">    &#123;name:&apos;张三2&apos;,sex:&apos;男&apos;,phone:12345678&#125;,</div><div class="line">    &#123;name:&apos;张三3&apos;,sex:&apos;男&apos;,phone:12345678&#125;,</div><div class="line">    &#123;name:&apos;张三4&apos;,sex:&apos;男&apos;,phone:12345678&#125;,</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>嫌疑人社会关系详情</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">const ContactDetails = &#123;</div><div class="line">    &quot;张三&quot;: [&quot;张三2&quot;, &quot;张三3&quot;, &quot;张三4&quot;],</div><div class="line">    &quot;张三1&quot;: [&quot;张三&quot;, &quot;张三3&quot;, &quot;张三4&quot;],</div><div class="line">    &quot;张三2&quot;: [&quot;张三8&quot;, &quot;张三3&quot;, &quot;张三1&quot;],</div><div class="line">    &quot;张三3&quot;: [&quot;张三6&quot;, &quot;张三2&quot;, &quot;张三&quot;],</div><div class="line">    &quot;张三4&quot;: [&quot;张三2&quot;, &quot;张三3&quot;, &quot;张三5&quot;],</div><div class="line">    &quot;张三5&quot;: [&quot;张三3&quot;, &quot;张三3&quot;, &quot;张三7&quot;],</div><div class="line">    &quot;张三6&quot;: [&quot;张三4&quot;, &quot;张三3&quot;, &quot;张三&quot;],</div><div class="line">    &quot;张三7&quot;: [&quot;张三2&quot;, &quot;张三3&quot;],</div><div class="line">    &quot;张三8&quot;: [&quot;张三4&quot;],</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h3><p>1.创建一个 html 快速做出功能。</p>
+<p>2.分解 html 和 vue 各个组件代码到对应目录。</p>
+<p>3.引入 webpack, 配置 webpack 常用插件。</p>
+<h3 id="开发步骤（1-0-0"><a href="#开发步骤（1-0-0" class="headerlink" title="开发步骤（1.0.0)"></a>开发步骤（1.0.0)</h3><p>1.引入 vue.js ( 通过 script 标签直接引入在线 cdn 文件), 实例化 vue 组件。</p>
+<p>2.创建两个局部组件作为人物关系页/人物详情页(局部/全局组件知道就好)。</p>
+<p>5.通过组件模板布局组件 html。</p>
+<p>6.使用 css 给布局的 html 穿上衣服。</p>
+<p>7.实现组件之间的父传子, 子传父通信。</p>
+<p>8.使用 vue 基础语法实现数据的展示。</p>
+<h3 id="开发步骤（2-0-0"><a href="#开发步骤（2-0-0" class="headerlink" title="开发步骤（2.0.0)"></a>开发步骤（2.0.0)</h3><p>1.拆分 css、js, 使用 style、script 标签引入。</p>
+<p>2.拆分 vue 各个组件使用模块化方式引入。</p>
+<p>3.使用 npm 来初始化项目引入 webpack 基本插件。</p>
+<p>4.配置 webpack 的热更新、别名、开发/生产环境等等。</p>
+<blockquote>
+<p>以上步骤只用于当前项目。</p>
+</blockquote>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Sharing and growing is important
+        <p class="copyright text-muted">
+          thanks for <a target="_blank" href="https://github.com/buildlove">myself</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

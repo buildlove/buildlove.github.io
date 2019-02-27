@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://buildlove.github.io/"/>
-  <updated>2016-11-09T03:27:09.000Z</updated>
+  <updated>2019-02-27T08:21:30.752Z</updated>
   <id>http://buildlove.github.io/</id>
   
   <author>
@@ -16,13 +16,305 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>一个简单的 vue 项目</title>
+    <link href="http://buildlove.github.io/2018/06/27/vue-webpack-pro/"/>
+    <id>http://buildlove.github.io/2018/06/27/vue-webpack-pro/</id>
+    <published>2018-06-27T08:11:45.000Z</published>
+    <updated>2019-02-27T08:21:30.752Z</updated>
+    
+    <content type="html"><![CDATA[<p>老板给的面试题目<br><a id="more"></a></p>
+<p><a href="https://github.com/buildlove/vue-practice" target="_blank" rel="external">github源码</a></p>
+<p>通过一个小产品总结过去一段时间的学习。</p>
+<ul>
+<li>vue 框架</li>
+<li>webpack 打包单页面应用程序</li>
+</ul>
+<h2 id="产品效果"><a href="#产品效果" class="headerlink" title="产品效果"></a>产品效果</h2><p><img src="https://upload-images.jianshu.io/upload_images/12240257-af0d58f3a845cad5.gif?imageMogr2/auto-orient/strip" alt="1.gif"></p>
+<h2 id="需求分解"><a href="#需求分解" class="headerlink" title="需求分解"></a>需求分解</h2><p>第一页组件, 显示载入数据按钮点击之后显示第二页组件。</p>
+<p>第二页嫌疑人详细信息列表<br>    1.带滚动条, 可以上下滚动<br>    2.在嫌疑人社会关系中点击联系人时, 会自动滚动到嫌疑人详细信息列表并添加背景颜色标记。<br>    3.嫌疑人组件支持左键单击, 状态为选中</p>
+<p>第三页嫌疑人社会关系<br>    1.回退按钮, 记录每一次操作数据, 每次回退的时候删除数据。<br>    2.联系人, 选中后嫌疑人组件展示并选中列表项组件, 展示联系人详情。<br>    3.可以进一步点击联系人。 不论点击多少步都支持单步回退到起点。</p>
+<h2 id="数据字段设计"><a href="#数据字段设计" class="headerlink" title="数据字段设计"></a>数据字段设计</h2><p>嫌疑人详细信息列表</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">const Peopelist = [</div><div class="line">    &#123;name:&apos;张三&apos;,sex:&apos;男&apos;,phone:12345678&#125;,</div><div class="line">    &#123;name:&apos;张三2&apos;,sex:&apos;男&apos;,phone:12345678&#125;,</div><div class="line">    &#123;name:&apos;张三3&apos;,sex:&apos;男&apos;,phone:12345678&#125;,</div><div class="line">    &#123;name:&apos;张三4&apos;,sex:&apos;男&apos;,phone:12345678&#125;,</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>嫌疑人社会关系详情</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">const ContactDetails = &#123;</div><div class="line">    &quot;张三&quot;: [&quot;张三2&quot;, &quot;张三3&quot;, &quot;张三4&quot;],</div><div class="line">    &quot;张三1&quot;: [&quot;张三&quot;, &quot;张三3&quot;, &quot;张三4&quot;],</div><div class="line">    &quot;张三2&quot;: [&quot;张三8&quot;, &quot;张三3&quot;, &quot;张三1&quot;],</div><div class="line">    &quot;张三3&quot;: [&quot;张三6&quot;, &quot;张三2&quot;, &quot;张三&quot;],</div><div class="line">    &quot;张三4&quot;: [&quot;张三2&quot;, &quot;张三3&quot;, &quot;张三5&quot;],</div><div class="line">    &quot;张三5&quot;: [&quot;张三3&quot;, &quot;张三3&quot;, &quot;张三7&quot;],</div><div class="line">    &quot;张三6&quot;: [&quot;张三4&quot;, &quot;张三3&quot;, &quot;张三&quot;],</div><div class="line">    &quot;张三7&quot;: [&quot;张三2&quot;, &quot;张三3&quot;],</div><div class="line">    &quot;张三8&quot;: [&quot;张三4&quot;],</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h3><p>1.创建一个 html 快速做出功能。</p>
+<p>2.分解 html 和 vue 各个组件代码到对应目录。</p>
+<p>3.引入 webpack, 配置 webpack 常用插件。</p>
+<h3 id="开发步骤（1-0-0"><a href="#开发步骤（1-0-0" class="headerlink" title="开发步骤（1.0.0)"></a>开发步骤（1.0.0)</h3><p>1.引入 vue.js ( 通过 script 标签直接引入在线 cdn 文件), 实例化 vue 组件。</p>
+<p>2.创建两个局部组件作为人物关系页/人物详情页(局部/全局组件知道就好)。</p>
+<p>5.通过组件模板布局组件 html。</p>
+<p>6.使用 css 给布局的 html 穿上衣服。</p>
+<p>7.实现组件之间的父传子, 子传父通信。</p>
+<p>8.使用 vue 基础语法实现数据的展示。</p>
+<h3 id="开发步骤（2-0-0"><a href="#开发步骤（2-0-0" class="headerlink" title="开发步骤（2.0.0)"></a>开发步骤（2.0.0)</h3><p>1.拆分 css、js, 使用 style、script 标签引入。</p>
+<p>2.拆分 vue 各个组件使用模块化方式引入。</p>
+<p>3.使用 npm 来初始化项目引入 webpack 基本插件。</p>
+<p>4.配置 webpack 的热更新、别名、开发/生产环境等等。</p>
+<blockquote>
+<p>以上步骤只用于当前项目。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      用于个人笔记
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://buildlove.github.io/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>es6标准化检测</title>
+    <link href="http://buildlove.github.io/2018/04/27/es6-checked/"/>
+    <id>http://buildlove.github.io/2018/04/27/es6-checked/</id>
+    <published>2018-04-27T08:12:38.000Z</published>
+    <updated>2019-02-27T08:23:15.739Z</updated>
+    
+    <content type="html"><![CDATA[<p>webstorm 标准配置<br><a id="more"></a></p>
+<p>打开 webstorm 进行设置 ( File &gt;&gt; setting &gt;&gt; Languages &amp; Frameworks &gt;&gt; JavaScript &gt;&gt; ECMAScript 6 )。</p>
+<ul>
+<li><p>当你设置好 es6 规范之后, 使用webstorm编程, 右边的语法检错几乎没有红色和黄色的报错的时候, 恭喜你, 你已经养成了使用 es6 标准编程的习惯。</p>
+</li>
+<li><p>jquery和其他的一些插件也有自己的 Typescript 验证模块, 如果不引入这些插件的验证模块可能会报白色错误(配置在第 12 个报错)。</p>
+</li>
+<li><p>本文所有的报错均为黄色或者白色报错，可能几乎不会影响程序的运行。</p>
+</li>
+</ul>
+<h3 id="1-使用-var-作为声明变量的方法报错"><a href="#1-使用-var-作为声明变量的方法报错" class="headerlink" title="1. 使用 var 作为声明变量的方法报错"></a>1. 使用 var 作为声明变量的方法报错</h3><blockquote>
+<p>注意: 改的时候注意 var 的变量提升。</p>
+</blockquote>
+<p>  es6 里面声明变量都改成 let 和 const, 如果使用 var 作为声明方法, webstorm 会报错。 <a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="external"> let 和 var 的区别</a>。</p>
+<h3 id="2-每行代码结束的时候不添加分号报错-使用-standardjs-标准的无视"><a href="#2-每行代码结束的时候不添加分号报错-使用-standardjs-标准的无视" class="headerlink" title="2. 每行代码结束的时候不添加分号报错(使用 standardjs 标准的无视)"></a>2. 每行代码结束的时候不添加分号报错(使用 standardjs 标准的无视)</h3><blockquote>
+<p>注意: 并不是每行代码都加分号, 函数结尾的 ‘}’ 添加分号也会报黄色错误。</p>
+</blockquote>
+<h3 id="3-jquery选择器选择两次的情况下报错"><a href="#3-jquery选择器选择两次的情况下报错" class="headerlink" title="3. jquery选择器选择两次的情况下报错"></a>3. jquery选择器选择两次的情况下报错</h3><blockquote>
+<p>注意: 以下的 $ 每出现一次代表一次 DOM 操作, DOM 频繁操作会影响浏览器性能。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">  $(&quot;.select&quot;).addClass(&quot;active&quot;);</div><div class="line"></div><div class="line">  $(&quot;.select&quot;).removeClass(&quot;active&quot;);</div><div class="line"></div><div class="line">修改为</div><div class="line"></div><div class="line">  let select = $(&quot;.select&quot;); //这里只选择了一次。</div><div class="line"></div><div class="line">  select.addClass(&quot;active&quot;);</div><div class="line"></div><div class="line">  select.removeClass(&quot;active&quot;);</div></pre></td></tr></table></figure>
+<h3 id="4-使用”-”的报错"><a href="#4-使用”-”的报错" class="headerlink" title="4. 使用”==”的报错"></a>4. 使用”==”的报错</h3><ul>
+<li><p>“==” 叫相等运算符,  “===” 叫严格等于运算符。</p>
+</li>
+<li><p>相等运算符会导致一些变量在值相等而类型不等的情况下出现问题。(具体情况自行百度, 我只能帮你到这里了)。</p>
+<p>需要把两个等号”==”的全部换成三个等号”===”。</p>
+</li>
+</ul>
+<h3 id="5-三元运算符报错"><a href="#5-三元运算符报错" class="headerlink" title="5. 三元运算符报错"></a>5. 三元运算符报错</h3><blockquote>
+<p>这里可能只是因为es6不许你这么用。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">let isover = query.rowCount === -1 ? false : true; // 这种写法会有很大一条横线在整个语句下</div><div class="line"></div><div class="line">改为</div><div class="line"></div><div class="line">let isover;</div><div class="line"></div><div class="line">query.rowCount === -1 ? isover = false : isover = true;</div></pre></td></tr></table></figure>
+<h3 id="6-一个表达式里面有多个-return-报错"><a href="#6-一个表达式里面有多个-return-报错" class="headerlink" title="6. 一个表达式里面有多个 return 报错"></a>6. 一个表达式里面有多个 return 报错</h3><blockquote>
+<p>一般最后一个 return 下面会有很大一条白线</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">  function myfun () &#123;</div><div class="line"></div><div class="line">    let myNum = 1;</div><div class="line"></div><div class="line">    if( myNum )&#123;</div><div class="line"></div><div class="line">      return 2;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return 1;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  改为</div><div class="line"></div><div class="line">  function myfun () &#123;</div><div class="line"></div><div class="line">    let myNum = 1;</div><div class="line"></div><div class="line">    let result; </div><div class="line"></div><div class="line">    if ( myNum )&#123;</div><div class="line"></div><div class="line">      result = myNum;</div><div class="line"></div><div class="line">    &#125; else &#123;</div><div class="line"></div><div class="line">      result = 3;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return result;</div><div class="line"></div><div class="line">  &#125;   </div><div class="line"></div><div class="line">```   </div><div class="line"></div><div class="line">### 7. 对对象进行 for in 遍历时直接使用迭代值会报错</div><div class="line"></div><div class="line">  - for in 的方法描述是&quot;遍历能够枚举继承的属性名&quot;</div><div class="line"></div><div class="line">  - 当遍历对象时必须确认是否对象内继承了该属性</div><div class="line"></div><div class="line">  所以在遍历时需要加上</div></pre></td></tr></table></figure>
+<p>  for（var i in a）{</p>
+<pre><code>if( !a.hasOwnProperty(i) ) continue;//跳过继承的属性
+
+//循环体
+</code></pre><p>  }</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">### 8.冗余代码报错</div></pre></td></tr></table></figure>
+<p>  function test () {</p>
+<pre><code>let result = {}; // 这里的变量result会有一行白线, 告诉你这个变量没必要定义。
+
+return result
+</code></pre><p>  }</p>
+<p>  改为</p>
+<pre><code>function test () {
+
+  return {}
+</code></pre><p>  }</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">### 9.备注(参数缺少)报错</div><div class="line"></div><div class="line">&gt; 使用备注的时候, 参数一定要写全</div></pre></td></tr></table></figure>
+<p>  /**</p>
+<ul>
+<li><p>下载文件</p>
+</li>
+<li><p>@param path 路径</p>
+</li>
+<li><p>@param type 文件类型</p>
+</li>
+</ul>
+<p>*/</p>
+<p>function downloadFile( path, type, id ) { // 参数id下面有白色的线, 提示没有备注</p>
+<p>// your code …….</p>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">### 10. 没有用到的变量报错</div><div class="line"></div><div class="line">&gt; 定义了一个变量, 之后都没有引用会报黄色错误</div><div class="line"></div><div class="line">### 11. 监听事件报错</div><div class="line"></div><div class="line">&gt; 这里并不是强制性会报错，只是引用jquery插件后</div></pre></td></tr></table></figure>
+<p>$(‘.btn’).click(function(){})</p>
+<p>改为</p>
+<p>$(‘.btn’).on(‘click’,function(){})</p>
+<p>```</p>
+<h3 id="12-html引入路径报错"><a href="#12-html引入路径报错" class="headerlink" title="12.html引入路径报错"></a>12.html引入路径报错</h3><blockquote>
+<p>当引入一段相对路径的文件, 代码块下方会有一条白色横线。</p>
+</blockquote>
+<p>如果你的public文件夹是项目的静态文件根目录，右键public &gt;&gt; Mark Directory as &gt;&gt; Resource Root</p>
+<h3 id="13-unresolved-function-or-method-白色错误"><a href="#13-unresolved-function-or-method-白色错误" class="headerlink" title="13. unresolved function or method $() 白色错误"></a>13. unresolved function or method $() 白色错误</h3><blockquote>
+<p>鼠标放在右边错误上显示以上错误或者类似的错误都是没有引入库的原因</p>
+</blockquote>
+<p>解决方法:</p>
+<ul>
+<li><p>根据以下操作路径 File &gt;&gt; setting &gt;&gt; Languages &amp; Frameworks &gt;&gt; JavaScript &gt;&gt; Libraries 找到面板上面的download按钮</p>
+</li>
+<li><p>ctrl+F 然后输入 jquery 或者其他的什么库，然后点击库下载 ts 验证模块链接。</p>
+</li>
+<li><p>此设置可能会出现 jquery 或其他插件的语法规范。</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      用于个人笔记
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://buildlove.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>地图瓦片在线爬取</title>
+    <link href="http://buildlove.github.io/2018/02/27/map-spider/"/>
+    <id>http://buildlove.github.io/2018/02/27/map-spider/</id>
+    <published>2018-02-27T08:13:19.000Z</published>
+    <updated>2019-02-27T08:22:37.588Z</updated>
+    
+    <content type="html"><![CDATA[<p>node 的简单爬虫以及静态服务器的搭建<br><a id="more"></a></p>
+<p>由于很多时候需要在封闭的环境下使用地图底图, 写了一个爬取在线地图瓦片作为静态地图服务器的简单程序, js 代码 180 行, html 不到 10行, 废话不多说直接 <a href="https://github.com/buildlove/grap-map-tiles" target="_blank" rel="external">github源码</a> 。</p>
+<h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h2><p><img src="https://upload-images.jianshu.io/upload_images/12240257-c2a246f227a862b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ul>
+<li>启动服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">npm install</div><div class="line">node app.js || npm run dev</div></pre></td></tr></table></figure>
+<ul>
+<li><p>在本地浏览器中打开 client/index.html</p>
+</li>
+<li><p>在页面中滚动鼠标 leaflet 插件会去请求地图瓦片</p>
+</li>
+</ul>
+<h2 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h2><blockquote>
+<p>app.js</p>
+</blockquote>
+<ul>
+<li><p>服务器接收瓦片请求并判断是否存在该瓦片。</p>
+</li>
+<li><p>存在瓦片则返回瓦片, 不存在则加入缓存等待下载。</p>
+</li>
+</ul>
+<blockquote>
+<p>downloadMap.js</p>
+</blockquote>
+<ul>
+<li><p>缓存链接到数组内。</p>
+</li>
+<li><p>服务端会每隔1秒检查数组内是否有链接 有则去下载。</p>
+</li>
+</ul>
+<h2 id="地图相关"><a href="#地图相关" class="headerlink" title="地图相关"></a>地图相关</h2><ul>
+<li><p>Arcgis 官方使用插件 dojo.js 来接入地图底图。</p>
+</li>
+<li><p>dojo.js 除了展示底图几乎一无是处, dojo.js 和 require.js 有冲突。</p>
+</li>
+<li><p>Arcgis 工具分为制作底图的客户端 ArcMap, 服务器 Arcgis Server。</p>
+</li>
+<li><p>leaflet 有相当多的接口和插件来制作地图工具。</p>
+</li>
+<li><p>ArcMap 在发布服务时一定要设置好参数, 不然 leaflet 不能接入底图。</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      用于个人笔记
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://buildlove.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js模块加载标准</title>
+    <link href="http://buildlove.github.io/2018/01/27/module-common/"/>
+    <id>http://buildlove.github.io/2018/01/27/module-common/</id>
+    <published>2018-01-27T08:10:29.000Z</published>
+    <updated>2019-02-27T08:15:57.803Z</updated>
+    
+    <content type="html"><![CDATA[<p>js模块加载标准<br><a id="more"></a></p>
+<p>熟悉模块加载标准之后</p>
+<ol>
+<li><p>浏览器 html 文本插入非常多 script 标签时，异步加载这些标签，使页面响应速度变快。</p>
+</li>
+<li><p>管理代码拆分，前端模块化/工程化，便于代码的编写和维护。</p>
+</li>
+<li><p>更快的看懂一个新的项目。</p>
+</li>
+</ol>
+<p>目前最流行的三种模块加载标准是 Commonjs / AMD / CMD</p>
+<h3 id="CommonJs"><a href="#CommonJs" class="headerlink" title="CommonJs"></a>CommonJs</h3><p>commonjs 简单运用步骤</p>
+<p>1.一个文件一个模块, 文件内定义一个函数a</p>
+<p>2.把对象 { a : a } 赋值给 module.exports 暴露出去。</p>
+<p>3.使用 let moduleA = require(“libs/a”) 来接收这个模块</p>
+<p>4.moduleA.a() 来执行这个函数</p>
+<p>5.commonjs 标准在浏览器端用不了</p>
+<blockquote>
+<p>node 使用 commonjs 加载机制</p>
+</blockquote>
+<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>浏览器是同步加载 js 的, 当大量的 script标签同步引入的时候会阻塞页面渲染</p>
+<p>AMD 加载 js 的好处</p>
+<ol>
+<li><p>异步加载 script 标签, 减少页面失去响应的时间。</p>
+</li>
+<li><p>实时添加时间戳, 防止开发过程中 js 加载后被缓存(无论怎么改代码都报错,需要强制清空浏览器缓存)。</p>
+</li>
+<li><p>前端模块化, 便于编写和维护。 </p>
+</li>
+</ol>
+<blockquote>
+<p>实现前端 AMD 方式加载 js 的前端插件是 require.js</p>
+</blockquote>
+<p>以下是 require.js 的配置/自定义模块/以及使用的简单例子(以下例子纯属手打, 如果有错误, 无视就好)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// html中引用require.js以及配置</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;javascripts/require.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  require.config(&#123;</div><div class="line">    // 给每一个加载的js链接之后添加时间戳,防止插件被缓存。</div><div class="line">    urlArgs: &quot;v=&quot; + (new Date()).getTime()</div><div class="line">    waitSeconds: 0,</div><div class="line">    paths: &#123;</div><div class="line">        &apos;jquery&apos;: &apos;javascripts/jquery.min&apos;,</div><div class="line">        &apos;angular&apos;: &apos;javascripts/angular.min&apos;,</div><div class="line">        &apos;myjs&apos;: &apos;javascripts/myjs&apos;</div><div class="line">    &#125;,</div><div class="line">    shim: &#123;</div><div class="line">        &apos;jquery&apos;:&#123;</div><div class="line">            exports: [&apos;jquery&apos;]</div><div class="line">        &#125;,</div><div class="line">        &apos;angular&apos;:&#123;</div><div class="line">            deps : [&quot;jquery&quot;]//依赖jquery</div><div class="line">        &#125;,</div><div class="line">        &apos;myjs&apos;:&#123;</div><div class="line">            deps : [&quot;jquery&quot;, &quot;angular&quot;]//依赖jquery和angular</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&lt;script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">//自定义模块myjs</div><div class="line">define(&quot;initMapControll&quot;,[</div><div class="line">  &quot;jquery&quot;,</div><div class="line">  &quot;angular&quot;</div><div class="line">],  function($,angular)&#123;</div><div class="line">  function run&#123;</div><div class="line">    return &quot;AMD&quot;</div><div class="line">  &#125;</div><div class="line">  module.export = &#123;</div><div class="line">    run: run</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">//自定义模块的使用</div><div class="line">    require([&quot;myjs&quot;],function(myjs)&#123;</div><div class="line">        myjs.run() //打印&quot;AMD&quot;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><blockquote>
+<p>实现前端 CMD 方式加载 js 的前端插件是 sea.js, 是中国人写的。</p>
+</blockquote>
+<ol>
+<li><p>和 require.js 写法上差不多。</p>
+</li>
+<li><p>sea.js 加载方式也是异步加载(加载时会去把模块变为字符串去找一遍依赖, 找到后先加载)。</p>
+</li>
+<li><p>使用 factory 的方式定义模块, 可以在每一个页面配置一个 config.js 文件, sea.js 会自动合并配置文件。</p>
+</li>
+<li><p><a href="http://tinyambition.com/HelloSea.js/index.html" target="_blank" rel="external">参考资料</a>看到一个有意思的黑科技, 把 node 模块转化为 CMD 或者 AMD 的加载方式让浏览器加载。</p>
+</li>
+</ol>
+<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(function (root, factory) &#123;</div><div class="line">  if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">    // AMD</div><div class="line">    define(&apos;backbone&apos;, [&apos;jquery&apos;, &apos;underscore&apos;], function (jQuery, _) &#123;</div><div class="line">      return factory(jQuery, _);</div><div class="line">    &#125;);</div><div class="line">  &#125; else if (typeof exports === &apos;object&apos;) &#123;</div><div class="line">  // Node.js</div><div class="line">    module.exports = factory(require(&apos;jquery&apos;), require(&apos;underscore&apos;));</div><div class="line">  &#125; else &#123;</div><div class="line">    // Browser globals</div><div class="line">    root.Backbone = factory(root.jQuery, root._);</div><div class="line">  &#125;</div><div class="line">&#125;(this, function (jQuery, _) &#123;</div><div class="line">  var Backbone = &#123;&#125;;</div><div class="line">  // Backbone code that depends on jQuery and _</div><div class="line">  return Backbone;</div><div class="line"></div><div class="line">&#125;));</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      用于个人笔记
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://buildlove.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
     <title>hexo</title>
     <link href="http://buildlove.github.io/2016/11/09/hexo/"/>
     <id>http://buildlove.github.io/2016/11/09/hexo/</id>
     <published>2016-11-09T02:03:40.000Z</published>
-    <updated>2016-11-09T03:27:09.000Z</updated>
+    <updated>2019-02-27T08:05:04.154Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h2><p>Hexo官网 (右侧可以选择中文简体)<br><a href="http://hexo.io/" target="_blank" rel="external">http://hexo.io/</a></p>
+    <content type="html"><![CDATA[<p>hexo学习配置<br><a id="more"></a></p>
+<h2 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h2><p>Hexo官网 (右侧可以选择中文简体)<br><a href="http://hexo.io/" target="_blank" rel="external">http://hexo.io/</a></p>
 <p>Hexo 入门<br><a href="http://zipperary.com/categories/hexo/" target="_blank" rel="external">http://zipperary.com/categories/hexo/</a></p>
 <p>Hexo Admin<br><a href="http://jaredly.github.io/hexo-admin/" target="_blank" rel="external">http://jaredly.github.io/hexo-admin/</a></p>
 <p>Hexo Theme wiki<br><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">https://github.com/hexojs/hexo/wiki/Themes</a></p>
@@ -56,9 +348,10 @@
     <link href="http://buildlove.github.io/2016/10/13/mongoose/"/>
     <id>http://buildlove.github.io/2016/10/13/mongoose/</id>
     <published>2016-10-13T09:02:12.000Z</published>
-    <updated>2016-12-15T02:28:16.000Z</updated>
+    <updated>2019-02-27T08:06:36.129Z</updated>
     
-    <content type="html"><![CDATA[<p>主要目录文件所在位置<br>path: /usr/local/mongodb<br>mongod.lock: 根目录/data/db/mongod.lock<br>logpath=/usr/local/mongodb/logs/mongodb.log<br>/data/db: 根目录/data/db<br>配置文件：/usr/local/mongodb/bin/mongodb.conf</p>
+    <content type="html"><![CDATA[<p>mongodb 使用方式<br><a id="more"></a></p>
+<p>主要目录文件所在位置<br>path: /usr/local/mongodb<br>mongod.lock: 根目录/data/db/mongod.lock<br>logpath=/usr/local/mongodb/logs/mongodb.log<br>/data/db: 根目录/data/db<br>配置文件：/usr/local/mongodb/bin/mongodb.conf</p>
 <h2 id="下载安装包-解压-移动到-usr-local目录下并改名"><a href="#下载安装包-解压-移动到-usr-local目录下并改名" class="headerlink" title="下载安装包-解压-移动到/usr/local目录下并改名"></a>下载安装包-解压-移动到/usr/local目录下并改名</h2><p>wget <a href="https://fastdl.mongodb.org/linux/mongodb-linux-i686-3.0.2.tgz" target="_blank" rel="external">https://fastdl.mongodb.org/linux/mongodb-linux-i686-3.0.2.tgz</a><br>gzip -d mongodb-linux-i686-3.0.2.tgz<br>tar xvf mongodb-linux-i686-3.0.2.tar<br>mv mongodb-linux-i686-3.0.2 /usr/local/mongodb<br>cd /usr/local/mongodb<br>mkdir db<br>mkdir logs<br>cd bin<br>vi mongodb.conf</p>
 <h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>vi /usr/local/mongodb/mongodb.conf:dbpath=/usr/local/mongodb/db<br>写入以下配置项<br>dbpath=/data/db #指定数据库路径<br>logpath=/usr/local/mongodb/logs/mongodb.log #指定打印文件路径<br>port=27017  #端口<br>fork=true   #是否后台运行<br>nohttpinterface=true<br>auth=true   #是否验证账号密码</p>
 <h2 id="开机自动启动mongodb"><a href="#开机自动启动mongodb" class="headerlink" title="开机自动启动mongodb"></a>开机自动启动mongodb</h2><p>vi /etc/rc.d/rc.local<br>/usr/local/mongodb/bin/mongod –config /usr/local/mongodb/bin/mongodb.conf</p>
@@ -93,6 +386,8 @@
     
       <category term="database" scheme="http://buildlove.github.io/tags/database/"/>
     
+      <category term="mongodb" scheme="http://buildlove.github.io/tags/mongodb/"/>
+    
   </entry>
   
   <entry>
@@ -100,9 +395,10 @@
     <link href="http://buildlove.github.io/2016/10/08/git-difftool/"/>
     <id>http://buildlove.github.io/2016/10/08/git-difftool/</id>
     <published>2016-10-08T09:09:53.000Z</published>
-    <updated>2016-10-17T09:00:50.000Z</updated>
+    <updated>2019-02-27T08:04:08.306Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="首先下载Beyond-Compare"><a href="#首先下载Beyond-Compare" class="headerlink" title="首先下载Beyond Compare"></a>首先下载Beyond Compare</h2><p>windows: <a href="http://www.scootersoftware.com/BCompare-4.1.9.21719.exe" target="_blank" rel="external">http://www.scootersoftware.com/BCompare-4.1.9.21719.exe</a><br>mac: <a href="http://www.scootersoftware.com/BCompareOSX-4.1.9.21719.zip" target="_blank" rel="external">http://www.scootersoftware.com/BCompareOSX-4.1.9.21719.zip</a><br>rm -rf “/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat”</p>
+    <content type="html"><![CDATA[<p>window 和 mac 下的对比工具配置<br><a id="more"></a></p>
+<h2 id="首先下载Beyond-Compare"><a href="#首先下载Beyond-Compare" class="headerlink" title="首先下载Beyond Compare"></a>首先下载Beyond Compare</h2><p>windows: <a href="http://www.scootersoftware.com/BCompare-4.1.9.21719.exe" target="_blank" rel="external">http://www.scootersoftware.com/BCompare-4.1.9.21719.exe</a><br>mac: <a href="http://www.scootersoftware.com/BCompareOSX-4.1.9.21719.zip" target="_blank" rel="external">http://www.scootersoftware.com/BCompareOSX-4.1.9.21719.zip</a><br>rm -rf “/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat”</p>
 <h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>找到git配置文件路径</p>
 <p>windows: C:\Users\liqi.gitconfig<br>mac: ~/.gitconfig</p>
 <p>在文件中添加以下代码,需要找到自己的Beyond Compare 4安装路径</p>
@@ -131,9 +427,10 @@
     <link href="http://buildlove.github.io/2016/08/24/database/"/>
     <id>http://buildlove.github.io/2016/08/24/database/</id>
     <published>2016-08-24T10:23:57.000Z</published>
-    <updated>2016-10-13T09:44:24.000Z</updated>
+    <updated>2019-02-27T08:03:23.357Z</updated>
     
-    <content type="html"><![CDATA[<p>#mac内默认全局变量文件<br>etc/paths</p>
+    <content type="html"><![CDATA[<p>mongodb 和 mysql 安装<br><a id="more"></a></p>
+<p>#mac内默认全局变量文件<br>etc/paths</p>
 <h1 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h1><h2 id="安装mongodb"><a href="#安装mongodb" class="headerlink" title="安装mongodb"></a>安装mongodb</h2><p>brew install mongodb<br>brew uninstall mongodb</p>
 <h2 id="mongodb启动命令"><a href="#mongodb启动命令" class="headerlink" title="mongodb启动命令"></a>mongodb启动命令</h2><p>sudo su mongod –config /usr/local/etc/mongod.conf<br>另一个命令行使用 mongo</p>
 <p>#图形化mongo软件<br>Robomongo</p>
@@ -162,9 +459,10 @@
     <link href="http://buildlove.github.io/2016/07/22/npm/"/>
     <id>http://buildlove.github.io/2016/07/22/npm/</id>
     <published>2016-07-22T04:00:04.000Z</published>
-    <updated>2016-07-22T04:11:32.000Z</updated>
+    <updated>2019-02-27T08:06:54.168Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="npm命令行参数"><a href="#npm命令行参数" class="headerlink" title="npm命令行参数"></a>npm命令行参数</h2><p>全局环境默认路径： “C:\Users\liyang\AppData\Roaming\npm\node_modules” and “/usr/local/lib/node_modules”</p>
+    <content type="html"><![CDATA[<p>npm 深入一点点了解<br><a id="more"></a></p>
+<h2 id="npm命令行参数"><a href="#npm命令行参数" class="headerlink" title="npm命令行参数"></a>npm命令行参数</h2><p>全局环境默认路径： “C:\Users\liyang\AppData\Roaming\npm\node_modules” and “/usr/local/lib/node_modules”</p>
 <p>npm -v                                               #查看npm安装的版本<br>npm install <name> -g                                #将包安装到全局环境中<br>npm install <name> –save                            #安装模块,加上–save写入目录下package.json内模块依赖<br>npm install git://github.com/package/path.git        #安装github路径上的包<br>npm install git://github.com/package/path.git#0.1.0  #安装github路径上版本的包<br>npm install path/to/somedir                          #安装本地路径包(前提是本地路径里面包含一个完整的包)<br>npm list –depth 0                                   #列出所有当前文件夹安装包<br>npm list -g –depth 0                                #列出npm所有全局安装包<br>npm outdated                                         #列出所有已经过时的包<br>npm update <modulename>                              #更新node模块<br>npm uninstall <moudlename> –save                    #卸载node模块,加–save删除目录下package.json内模块依赖<br>npm view <moudlename> dependencies                   #查看包的依赖关系<br>npm view <modulename> repository.url                 #查看包的源文件地址<br>npm init                                             #创建一个package.json文件<br>npm root                                             #查看当前包的安装路径<br>npm root -g                                          #查看全局的包的安装路径<br>npm help json                                        #打开package.json文档<br>npm help npm                                         #打开npm文档<br>npm install npm -g                                   #npm命令来升级npm<br>npm cache clear                                      #清空NPM本地缓存<br>npm config set prefix “c:\nodejs”                    #设置全局安装默认路径<br>npm config set proxy=<a href="http://127.0.0.1:8087" target="_blank" rel="external">http://127.0.0.1:8087</a>           #proxy – 代理<br>npm config set https_proxy=<a href="http://127.0.0.1:8087" target="_blank" rel="external">http://127.0.0.1:8087</a>     #https_proxy – https代理<br>npm config set registry “<a href="http://r.cnpmjs.org/" target="_blank" rel="external">http://r.cnpmjs.org/</a>“       #网速不好，使用代理下载国内源</modulename></moudlename></moudlename></modulename></name></name></p>
 <h2 id="node常用接口"><a href="#node常用接口" class="headerlink" title="node常用接口"></a>node常用接口</h2><h3 id="process文档"><a href="#process文档" class="headerlink" title="process文档"></a>process<a href="http://www.css88.com/archives/4548" target="_blank" rel="external">文档</a></h3><p>process.pid：当前进程的进程号。<br>process.version：Node的版本，比如v0.10.18。<br>process.platform：当前系统平台，比如Linux。<br>process.title：默认值为“node”，可以自定义该值。<br>process.argv：当前进程的命令行参数数组。<br>process.env：指向当前shell的环境变量，比如process.env.HOME。<br>process.execPath：运行当前进程的可执行文件的绝对路径。<br>process.stdout：指向标准输出。<br>process.stdin：指向标准输入。<br>process.stderr：指向标准错误。<br>process.exit()：退出当前进程。<br>process.cwd()：返回运行当前脚本的工作目录的路径。_<br>process.chdir()：改变工作目录。<br>process.nextTick()：将一个回调函数放在下次事件循环的顶部。</p>
 <h3 id="yargs文档"><a href="#yargs文档" class="headerlink" title="yargs文档"></a>yargs<a href="http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html" target="_blank" rel="external">文档</a></h3><p>设置node命令行参数插件</p>
@@ -192,9 +490,10 @@
     <link href="http://buildlove.github.io/2016/03/24/mac-python/"/>
     <id>http://buildlove.github.io/2016/03/24/mac-python/</id>
     <published>2016-03-24T08:39:14.000Z</published>
-    <updated>2016-04-12T07:21:34.000Z</updated>
+    <updated>2019-02-27T08:05:48.834Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="一切要从这篇文章说起"><a href="#一切要从这篇文章说起" class="headerlink" title="一切要从这篇文章说起"></a>一切要从这篇文章说起</h2><blockquote>
+    <content type="html"><![CDATA[<p>python 踩过的其中一个坑<br><a id="more"></a></p>
+<h2 id="一切要从这篇文章说起"><a href="#一切要从这篇文章说起" class="headerlink" title="一切要从这篇文章说起"></a>一切要从这篇文章说起</h2><blockquote>
 <p><a href="http://jingyan.baidu.com/article/27fa7326e4809646f8271fc7.html" target="_blank" rel="external">更新mac自带的python2.7到3.4版本</a>: <a href="http://jingyan.baidu.com/article/27fa7326e4809646f8271fc7.html" target="_blank" rel="external">http://jingyan.baidu.com/article/27fa7326e4809646f8271fc7.html</a></p>
 </blockquote>
 <p>mac顺利的从python2.7到了3.4, 问题来了<br>sudo pip install pillow<br>安装PIL时报错<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">File &quot;/usr/bin/easy_install&quot;, line 31</div><div class="line">continue</div><div class="line">^</div><div class="line">TabError: inconsistent use of tabs and spaces in indentation</div></pre></td></tr></table></figure></p>
@@ -229,9 +528,10 @@
     <link href="http://buildlove.github.io/2016/03/08/python/"/>
     <id>http://buildlove.github.io/2016/03/08/python/</id>
     <published>2016-03-08T06:27:06.000Z</published>
-    <updated>2016-10-13T09:50:08.000Z</updated>
+    <updated>2019-02-27T08:07:39.751Z</updated>
     
-    <content type="html"><![CDATA[<p>环境 win7 python3.4</p>
+    <content type="html"><![CDATA[<p>python 基础学习<br><a id="more"></a></p>
+<p>环境 win7 python3.4</p>
 <h2 id="安装virtualenv"><a href="#安装virtualenv" class="headerlink" title="安装virtualenv"></a>安装virtualenv</h2><p>pip install virtualenv<br>创建一个目录，命令行进入目录<br>virtualenv –no-site-packages venv<br>进入venv虚拟环境<br>找到../venv/Scripts/activate这个文件<br>直接拖放到命令行小黑框内回车或者绝对路径复制粘贴到命令行回车<br>(venv) C:\Users\liyang\Desktop\github1\python\myproject&gt;<br>命令行前出现venv的就说明进入另一个独立的python环境</p>
 <h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p>windows系统下需要安装PyMySQL连接数据库<br>pip install PyMySQL<br>安装之后在”\myproject\venv\Lib\site-packages\pymysql__init__.py”文件夹写入<br>import pymysql<br>在myproject文件夹下创建一个item.py文件，写入：</p>
 <p>import pymysql<br>conn = pymysql.connect(host=’127.0.0.1’, port=3306, user=’root’, passwd=’123456’, db=’mysql’)<br>cursor = conn.cursor()</p>
@@ -267,68 +567,14 @@
   </entry>
   
   <entry>
-    <title>javascript</title>
-    <link href="http://buildlove.github.io/2016/01/07/javascript/"/>
-    <id>http://buildlove.github.io/2016/01/07/javascript/</id>
-    <published>2016-01-07T10:29:53.000Z</published>
-    <updated>2017-02-21T08:56:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="null-与-undefined的区别"><a href="#null-与-undefined的区别" class="headerlink" title="null 与 undefined的区别"></a>null 与 undefined的区别</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var a;</div><div class="line">a    //undefined  已经声明但是未赋值的变量为undefined</div><div class="line"></div><div class="line">var a = null</div><div class="line">typeof(a)   //object  明确的赋值null</div><div class="line">a=&#123;&#125;</div><div class="line">alert(a==null) //false 当a有值&#123;&#125;时不为null</div><div class="line">typeof(null) //object</div></pre></td></tr></table></figure>
-<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">uniq = (a) -&gt;</div><div class="line">  hash = &#123;&#125;</div><div class="line">  len = a.length</div><div class="line">  result = []</div><div class="line">  i = 0</div><div class="line">  while i &lt; len</div><div class="line">    if !hash[a[i]]</div><div class="line">      hash[a[i]] = true</div><div class="line">      result.push a[i]</div><div class="line">    i++</div><div class="line">  return result</div></pre></td></tr></table></figure>
-<p>#取两个数组的交集<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ArraySame = (arr1, arr2)-&gt;</div><div class="line">  count = -1</div><div class="line">  if arr1.length &gt;= arr2.length</div><div class="line">    long = arr1</div><div class="line">    short = arr2</div><div class="line">  else</div><div class="line">    long = arr2</div><div class="line">    short = arr1</div><div class="line">  str = &apos;,&apos; + short.toString() + &apos;,&apos;</div><div class="line">  for i of long</div><div class="line">    if str.indexOf(long[i]) &lt; 0</div><div class="line">      short.push long[i]</div><div class="line">  return short</div></pre></td></tr></table></figure></p>
-<h2 id="报错简写"><a href="#报错简写" class="headerlink" title="报错简写"></a>报错简写</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">catchErr: (x)-&gt;</div><div class="line">  try</div><div class="line">    if typeof x is &apos;function&apos;</div><div class="line">      return x</div><div class="line">    else</div><div class="line">      throw &apos;it isnt a function&apos;</div><div class="line">  catch e</div><div class="line">    console.log e.message</div></pre></td></tr></table></figure>
-<h2 id="杨辉三角"><a href="#杨辉三角" class="headerlink" title="杨辉三角"></a>杨辉三角</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Combination: (m,n)-&gt;</div><div class="line">  if n is 0</div><div class="line">    return 1</div><div class="line">  else if m is n</div><div class="line">    return 1</div><div class="line">  else</div><div class="line">    return Combination(m-1,n-1)+Combination(m-1,n);</div><div class="line"></div><div class="line">Pascal: (n)-&gt;</div><div class="line">  for i in n</div><div class="line">    arr = []</div><div class="line">    for j in i</div><div class="line">      arr.push Combination(i,j) + &quot; &quot;</div><div class="line">    arrstg = arr.toString().replace(/,/g, &apos;&apos;);</div><div class="line">    console.log arrstg</div></pre></td></tr></table></figure>
-<h2 id="判断一个对象是否为空"><a href="#判断一个对象是否为空" class="headerlink" title="判断一个对象是否为空"></a>判断一个对象是否为空</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">## 对象为空时不进行遍历</div><div class="line">  isobject = (obj)-&gt;</div><div class="line">    obj ?= &#123;&#125;</div><div class="line">    for name in obj</div><div class="line">      return false</div><div class="line">    return true</div><div class="line">  a = &#123;&#125;</div><div class="line">  isobject(a)</div></pre></td></tr></table></figure>
-<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">wait = ()-&gt;</div><div class="line">  x = 0</div><div class="line">  wait = setInterval ()-&gt;</div><div class="line">    x = x+1</div><div class="line">    console.log x</div><div class="line">    if x==y</div><div class="line">      clearInterval wait</div><div class="line">  ,1000</div><div class="line">wait(3)</div></pre></td></tr></table></figure>
-<h2 id="删除遍历数组中的某个索引"><a href="#删除遍历数组中的某个索引" class="headerlink" title="删除遍历数组中的某个索引"></a>删除遍历数组中的某个索引</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">arr=[1,2,3,4,5,6,7];</div><div class="line">for(i=0;i &lt; arr.length;i++)</div><div class="line">  if arr[i]==5</div><div class="line">    arr.splice i,1</div><div class="line">    console.log arr[i]</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#promise 类</div><div class="line">dfd = new jQuery.Deferred()</div><div class="line">kwargs = &#123;&#125;</div><div class="line">class processes</div><div class="line">  sayncEvent: (kwargs, dfd)-&gt;</div><div class="line">    if kwargs.num &gt; 3</div><div class="line">      return dfd.resolve(&quot;sayncEvent: success&quot;)</div><div class="line">    else</div><div class="line">      return dfd.reject(&quot;sayncEvent: failed&quot;)</div><div class="line">    return dfd.promise()</div><div class="line">  testEvent: (kwargs, dfd)-&gt;</div><div class="line">    if kwargs = 5</div><div class="line">      return dfd.resolve(&quot;testEvent: The number is 5&quot;)</div><div class="line">    else</div><div class="line">      return dfd.reject(&quot;testEvent: The number is not 5&quot;)</div><div class="line">    return dfd.promise()</div><div class="line">  ## 数组去重</div><div class="line">  uniq: (kwargs, dfd)-&gt;</div><div class="line">    res = []</div><div class="line">    hash = &#123;&#125;</div><div class="line">    for key of kwargs.arr</div><div class="line">      if hash[key] isnt 1</div><div class="line">        res.push key</div><div class="line">        hash[key]=1</div><div class="line">    return res</div><div class="line"></div><div class="line">#检查promise类</div><div class="line">  check: (pro_val)-&gt;</div><div class="line">    $.when(pro_val).then(</div><div class="line">      (status)-&gt;</div><div class="line">        console.log(status)</div><div class="line">      (status)-&gt;</div><div class="line">        console.error(status)</div><div class="line">    )</div><div class="line">    return</div><div class="line"></div><div class="line">class descriptor</div><div class="line">  constructor: ()-&gt;</div><div class="line">    processes = new processes()</div><div class="line">  parseDfd: (pro_val_val)-&gt;</div><div class="line">    processes.check(pro_val_val)</div><div class="line"></div><div class="line">descriptor = new descriptor</div><div class="line">descriptor.parseDfd processes.sayncEvent(5, dfd)</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      用于个人笔记
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://buildlove.github.io/categories/javascript/"/>
-    
-    
-      <category term="js" scheme="http://buildlove.github.io/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>qiniu</title>
-    <link href="http://buildlove.github.io/2015/12/24/qiniu/"/>
-    <id>http://buildlove.github.io/2015/12/24/qiniu/</id>
-    <published>2015-12-24T08:37:01.000Z</published>
-    <updated>2016-10-13T09:22:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>前期使用了qshell命令行工具进行上传<br><a href="https://github.com/qiniu/qshell" target="_blank" rel="external">https://github.com/qiniu/qshell</a></p>
-<h4 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h4><p>以下是文件windows下七牛的配置文件qn.conf<br>{<br>    “src_dir”   :   “C:\Users\用户名\Desktop\文件夹”,   //这个是需要同步文件夹的地址<br>    “access_key”    :   “”,           //在这个地址获得<a href="https://portal.qiniu.com/setting/key" target="_blank" rel="external">https://portal.qiniu.com/setting/key</a><br>    “secret_key”    :   “”,           //在这个地址获得<a href="https://portal.qiniu.com/setting/key" target="_blank" rel="external">https://portal.qiniu.com/setting/key</a><br>    “up_host”       :   “<a href="http://up.qiniu.com" target="_blank" rel="external">http://up.qiniu.com</a>“,               //上传的地址<br>    “bucket”    :   “liyang”,                                //空间名<br>    “key_prefix”    :   “yilan/img/“,                        //上传之后文件前缀<br>    “ignore_dir”    :   false,<br>    “overwrite”     :   false,<br>    “check_exists”  :   false<br>}<br>qshell qupload qn.conf  同步上传本地所有文件</p>
-]]></content>
-    
-    <summary type="html">
-    
-      七牛云存储js
-    
-    </summary>
-    
-      <category term="七牛" scheme="http://buildlove.github.io/categories/%E4%B8%83%E7%89%9B/"/>
-    
-    
-      <category term="图床" scheme="http://buildlove.github.io/tags/%E5%9B%BE%E5%BA%8A/"/>
-    
-  </entry>
-  
-  <entry>
     <title>ubuntu14.10遇到的问题</title>
     <link href="http://buildlove.github.io/2015/12/21/ubuntu/"/>
     <id>http://buildlove.github.io/2015/12/21/ubuntu/</id>
     <published>2015-12-21T08:57:01.000Z</published>
-    <updated>2016-01-08T06:36:16.000Z</updated>
+    <updated>2019-02-27T08:08:29.457Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="sudo-apt-get-update出现很多404"><a href="#sudo-apt-get-update出现很多404" class="headerlink" title="sudo apt-get update出现很多404"></a>sudo apt-get update出现很多404</h2><p>替换目录/etc/apt/sources.list中的源<br>网易163<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-backports main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-backports main restricted universe multiverse<br>或者搜狐更新服务器：<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-backports main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-backports main restricted universe multiverse</p>
+    <content type="html"><![CDATA[<p>linux-ubuntu 基础学习<br><a id="more"></a></p>
+<h2 id="sudo-apt-get-update出现很多404"><a href="#sudo-apt-get-update出现很多404" class="headerlink" title="sudo apt-get update出现很多404"></a>sudo apt-get update出现很多404</h2><p>替换目录/etc/apt/sources.list中的源<br>网易163<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-backports main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-backports main restricted universe multiverse<br>或者搜狐更新服务器：<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-backports main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-backports main restricted universe multiverse</p>
 <h2 id="无法修正错误-因为您要求某些软件包保持现状-就是它们破坏了软件包间的依赖关系"><a href="#无法修正错误-因为您要求某些软件包保持现状-就是它们破坏了软件包间的依赖关系" class="headerlink" title="无法修正错误,因为您要求某些软件包保持现状,就是它们破坏了软件包间的依赖关系"></a>无法修正错误,因为您要求某些软件包保持现状,就是它们破坏了软件包间的依赖关系</h2><p>系统设置&gt;软件和更新&gt;其它软件最下面一列的源勾去掉(出现这个错误都是源和环境依赖的问题百度解决)</p>
 <h2 id="chrome无法下载"><a href="#chrome无法下载" class="headerlink" title="chrome无法下载"></a>chrome无法下载</h2><p>在ubuntu软件下载中心下载google-chrome</p>
 <h2 id="QQ无法下载"><a href="#QQ无法下载" class="headerlink" title="QQ无法下载"></a>QQ无法下载</h2><p>目前知道的只能下载国际版的QQ，或者网页QQ</p>
@@ -358,16 +604,17 @@
     <link href="http://buildlove.github.io/2015/12/08/Git/"/>
     <id>http://buildlove.github.io/2015/12/08/Git/</id>
     <published>2015-12-08T08:26:08.000Z</published>
-    <updated>2017-03-10T06:37:02.000Z</updated>
+    <updated>2019-02-27T08:04:44.640Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="设置常用别名"><a href="#设置常用别名" class="headerlink" title="设置常用别名"></a>设置常用别名</h2><p>git config <code>--</code>global alias.co checkout<br>git config <code>--</code>global alias.ci commit<br>git config <code>--</code>global alias.br branch<br>git config <code>--</code>global alias.unstage ‘reset HEAD’<br>git config <code>--</code>global alias.last ‘log -1’<br>git config <code>--</code>global alias.lg “log –color –graph –pretty=format:’%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset’ –abbrev-commit”</p>
+    <content type="html"><![CDATA[<p>git 常用命令<br><a id="more"></a></p>
+<h2 id="设置常用别名"><a href="#设置常用别名" class="headerlink" title="设置常用别名"></a>设置常用别名</h2><p>git config <code>--</code>global alias.co checkout<br>git config <code>--</code>global alias.ci commit<br>git config <code>--</code>global alias.br branch<br>git config <code>--</code>global alias.unstage ‘reset HEAD’<br>git config <code>--</code>global alias.last ‘log -1’<br>git config <code>--</code>global alias.lg “log –color –graph –pretty=format:’%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset’ –abbrev-commit”</p>
 <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>git status 查看本地文件状态<br>git add 加入暂存区<br>git commit -m “why commit” 提交到仓库<br>git commit <code>--</code> amend -m “123” 撤销上次提交<br>git pull origin master 从远程仓库获取最新版本（解决冲突）<br>git push origin master 推送本地修改到远程仓库<br>git tag v1.0.1 给本地修改仓库打上tag（这个每次大的提交都非常有必要打包）<br>git push origin v1.0.1 推送本地修改版本到远程仓库<br>git reflog 打印你的每一次命令（用于版本回退非常牛）<br>git reset <code>--</code>hard HEAD^ 回退到上一版本（后面换成HEAD^100 回退到上100个版本）<br>git reset <code>--</code>hard 版本ID 回退到想要的版本</p>
 <h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p>echo “A article” &gt;&gt; readme.txt                                        在readme.txt中新添加一行<br>echo “LICENSE is a new file.” &gt; LICENSE                               新增一个文件<br>cat readme.txt                                                        查看文件<br>rm readme.txt（如果删除错了文件可用 git checkout – readme.txt恢复）       删除文件</p>
 <h2 id="对暂存区和工作区的操作"><a href="#对暂存区和工作区的操作" class="headerlink" title="对暂存区和工作区的操作"></a>对暂存区和工作区的操作</h2><p>git checkout – readme.txt（别名） 丢弃工作区的修改<br>git unstage(别名)                丢弃暂存区的修改</p>
 <h2 id="commit之前，优化提交打印"><a href="#commit之前，优化提交打印" class="headerlink" title="commit之前，优化提交打印"></a>commit之前，优化提交打印</h2><p>git log 查看之前commit的所有打印(如果前3个都是打印的乱七八糟的)<br>git reset HEAD~3 退回<br>git log(再次查看发现退回到第4个)<br>git add -A<br>git commit -m “最终优化版本”<br>git push origin dev 这样就直接合并了前3次的打印为最终优化版本</p>
 <h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>git push origin :dev    删除远程dev分支<br>git push origin dev:dev 提交本地dev分支为远程dev分支（创建远程分支并合并本地分支到远程分支）</p>
 <h2 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h2><p>git checkout master         切换到master分支<br>git merge dev               merge 哎呀冲突了<br>git log                     这时候打开master中冲突文件，删掉冲突的代码<br>git add -A                  重新加入暂存<br>git commit -m ‘修改的代码’    重新提交<br>git push origin master      推送到远程仓库</p>
-<h2 id="同事修改了项目本地也"><a href="#同事修改了项目本地也" class="headerlink" title="同事修改了项目本地也"></a>同事修改了项目本地也</h2><p>git stash                     暂存本地修改<br>git pull –rebase origin dev  从远程拉下同事代码<br>git stash pop                 删除暂存</p>
+<h2 id="同事修改并push代码到远程dev分支"><a href="#同事修改并push代码到远程dev分支" class="headerlink" title="同事修改并push代码到远程dev分支"></a>同事修改并push代码到远程dev分支</h2><p>git stash                     暂存本地修改<br>git pull –rebase origin dev  从远程拉下同事代码<br>git stash pop                 删除暂存</p>
 <h2 id="公钥和私钥存在于当前目录下的-ssh目录id-rsa-和-id-rsa-pub"><a href="#公钥和私钥存在于当前目录下的-ssh目录id-rsa-和-id-rsa-pub" class="headerlink" title="公钥和私钥存在于当前目录下的.ssh目录id_rsa 和 id_rsa.pub"></a>公钥和私钥存在于当前目录下的.ssh目录id_rsa 和 id_rsa.pub</h2><p>ssh-keygen -t rsa -C “youremail@example.com”                      创建SSH Key 然后一路回车（登陆Github传上去）<br>git remote add origin git@github.com:buildlove/learngit.git       关联远程仓库<br>git push -u origin master                                         推送本地提交到远程master仓库（第一次提交需要加-u）<br>git clone git@github.com:buildlove/learngit.git                   克隆一个远程仓库到本地<br>git pull origin master                                            从远程仓库拉下代码如果有冲突，本地手动解决</p>
 <h2 id="删除远程文件"><a href="#删除远程文件" class="headerlink" title="删除远程文件"></a>删除远程文件</h2><p>git rm -r -n <code>--</code>cached  <em>/node_module/\</em>    加上-n这个参数，执行命令时，是不会删除任何文件，要预览删除的文件列表。<br>git rm -r -f <code>--</code>cached <em>/node_module/\</em>      删除跟踪状态<br>git rm <em>/node_module/\</em> -r -f               删除文件<br>git commit -m “移除src目录下所有文件的版本控制”  提交<br>git push origin master                      提交到远程服务器</p>
 <h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>git branch                查看所有分支<br>git branch dev            创建分支<br>git co -b dev (别名)      创建一个dev分支并切换到dev分支<br>git co                    切换分支<br>git merge <code>--</code>no-ff branch-B 可以将某一分支branch-B合并到分支branch-A并将合并记录提交到历史记录中去,但在合并前必须先切换到分支branch-A。<br>git branch -d dev         删除dev分支</p>
@@ -395,9 +642,10 @@
     <link href="http://buildlove.github.io/2015/11/08/photoshop/"/>
     <id>http://buildlove.github.io/2015/11/08/photoshop/</id>
     <published>2015-11-08T02:20:08.000Z</published>
-    <updated>2016-10-13T09:49:10.000Z</updated>
+    <updated>2019-02-27T08:08:58.075Z</updated>
     
-    <content type="html"><![CDATA[<blockquote>
+    <content type="html"><![CDATA[<p>ps 基础学习<br><a id="more"></a></p>
+<blockquote>
 <p><a href="http://www.imooc.com/learn/506" target="_blank" rel="external">参考视频链接</a>： <a href="http://www.imooc.com/learn/506" target="_blank" rel="external">http://www.imooc.com/learn/506</a></p>
 </blockquote>
 <h2 id="界面设置"><a href="#界面设置" class="headerlink" title="界面设置"></a>界面设置</h2><p>视图-&gt;标尺（打开）<br>视图-&gt;显示-&gt;智能参考线（打开）<br>自动选择：图层<br>窗口中只勾选 信息 字符 图层 历史记录<br>信息面板设置：第一第二颜色都设置为RGB 标尺设置为像素 勾选文档大小和文档尺寸<br>编辑-&gt;首选项-&gt;单位与标尺 标尺：像素 文字：像素<br>ctrl + 鼠标点击 能看到图层的 大小 像素 字符信息就行</p>

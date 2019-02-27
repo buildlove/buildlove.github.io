@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用于个人笔记">
+  <meta name="author" content="Screenshot 2015">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="js模块加载标准"/>
+  <meta property="og:description" content="用于个人笔记" />
+  <meta property="og:site_name" content="liyang&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://buildlove.github.ioundefined"/>
+  
+    <link rel="alternate" href="/atom.xml" title="liyang&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>liyang's blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">js模块加载标准</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/buildlove">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:mkdir_yang@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://www.jianshu.com/u/c4bc363ac296">
+                  
+                  简书
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Screenshot 2015</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-01-27</span>
+            <span class="time">16:26:13</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/js/">#js</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>js模块加载标准<br><a id="more"></a></p>
+<p>熟悉模块加载标准之后</p>
+<ol>
+<li><p>浏览器 html 文本插入非常多 script 标签时，异步加载这些标签，使页面响应速度变快。</p>
+</li>
+<li><p>管理代码拆分，前端模块化/工程化，便于代码的编写和维护。</p>
+</li>
+<li><p>更快的看懂一个新的项目。</p>
+</li>
+</ol>
+<p>目前最流行的三种模块加载标准是 Commonjs / AMD / CMD</p>
+<h3 id="CommonJs"><a href="#CommonJs" class="headerlink" title="CommonJs"></a>CommonJs</h3><p>commonjs 简单运用步骤</p>
+<p>1.一个文件一个模块, 文件内定义一个函数a</p>
+<p>2.把对象 { a : a } 赋值给 module.exports 暴露出去。</p>
+<p>3.使用 let moduleA = require(“libs/a”) 来接收这个模块</p>
+<p>4.moduleA.a() 来执行这个函数</p>
+<p>5.commonjs 标准在浏览器端用不了</p>
+<blockquote>
+<p>node 使用 commonjs 加载机制</p>
+</blockquote>
+<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>浏览器是同步加载 js 的, 当大量的 script标签同步引入的时候会阻塞页面渲染</p>
+<p>AMD 加载 js 的好处</p>
+<ol>
+<li><p>异步加载 script 标签, 减少页面失去响应的时间。</p>
+</li>
+<li><p>实时添加时间戳, 防止开发过程中 js 加载后被缓存(无论怎么改代码都报错,需要强制清空浏览器缓存)。</p>
+</li>
+<li><p>前端模块化, 便于编写和维护。 </p>
+</li>
+</ol>
+<blockquote>
+<p>实现前端 AMD 方式加载 js 的前端插件是 require.js</p>
+</blockquote>
+<p>以下是 require.js 的配置/自定义模块/以及使用的简单例子(以下例子纯属手打, 如果有错误, 无视就好)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// html中引用require.js以及配置</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;javascripts/require.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  require.config(&#123;</div><div class="line">    // 给每一个加载的js链接之后添加时间戳,防止插件被缓存。</div><div class="line">    urlArgs: &quot;v=&quot; + (new Date()).getTime()</div><div class="line">    waitSeconds: 0,</div><div class="line">    paths: &#123;</div><div class="line">        &apos;jquery&apos;: &apos;javascripts/jquery.min&apos;,</div><div class="line">        &apos;angular&apos;: &apos;javascripts/angular.min&apos;,</div><div class="line">        &apos;myjs&apos;: &apos;javascripts/myjs&apos;</div><div class="line">    &#125;,</div><div class="line">    shim: &#123;</div><div class="line">        &apos;jquery&apos;:&#123;</div><div class="line">            exports: [&apos;jquery&apos;]</div><div class="line">        &#125;,</div><div class="line">        &apos;angular&apos;:&#123;</div><div class="line">            deps : [&quot;jquery&quot;]//依赖jquery</div><div class="line">        &#125;,</div><div class="line">        &apos;myjs&apos;:&#123;</div><div class="line">            deps : [&quot;jquery&quot;, &quot;angular&quot;]//依赖jquery和angular</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&lt;script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">//自定义模块myjs</div><div class="line">define(&quot;initMapControll&quot;,[</div><div class="line">  &quot;jquery&quot;,</div><div class="line">  &quot;angular&quot;</div><div class="line">],  function($,angular)&#123;</div><div class="line">  function run&#123;</div><div class="line">    return &quot;AMD&quot;</div><div class="line">  &#125;</div><div class="line">  module.export = &#123;</div><div class="line">    run: run</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">//自定义模块的使用</div><div class="line">    require([&quot;myjs&quot;],function(myjs)&#123;</div><div class="line">        myjs.run() //打印&quot;AMD&quot;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><blockquote>
+<p>实现前端 CMD 方式加载 js 的前端插件是 sea.js, 是中国人写的。</p>
+</blockquote>
+<ol>
+<li><p>和 require.js 写法上差不多。</p>
+</li>
+<li><p>sea.js 加载方式也是异步加载(加载时会去把模块变为字符串去找一遍依赖, 找到后先加载)。</p>
+</li>
+<li><p>使用 factory 的方式定义模块, 可以在每一个页面配置一个 config.js 文件, sea.js 会自动合并配置文件。</p>
+</li>
+<li><p><a href="http://tinyambition.com/HelloSea.js/index.html" target="_blank" rel="external">参考资料</a>看到一个有意思的黑科技, 把 node 模块转化为 CMD 或者 AMD 的加载方式让浏览器加载。</p>
+</li>
+</ol>
+<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(function (root, factory) &#123;</div><div class="line">  if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">    // AMD</div><div class="line">    define(&apos;backbone&apos;, [&apos;jquery&apos;, &apos;underscore&apos;], function (jQuery, _) &#123;</div><div class="line">      return factory(jQuery, _);</div><div class="line">    &#125;);</div><div class="line">  &#125; else if (typeof exports === &apos;object&apos;) &#123;</div><div class="line">  // Node.js</div><div class="line">    module.exports = factory(require(&apos;jquery&apos;), require(&apos;underscore&apos;));</div><div class="line">  &#125; else &#123;</div><div class="line">    // Browser globals</div><div class="line">    root.Backbone = factory(root.jQuery, root._);</div><div class="line">  &#125;</div><div class="line">&#125;(this, function (jQuery, _) &#123;</div><div class="line">  var Backbone = &#123;&#125;;</div><div class="line">  // Backbone code that depends on jQuery and _</div><div class="line">  return Backbone;</div><div class="line"></div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Sharing and growing is important
+        <p class="copyright text-muted">
+          thanks for <a target="_blank" href="https://github.com/buildlove">myself</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

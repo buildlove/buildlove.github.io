@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用于个人笔记">
+  <meta name="author" content="Screenshot 2015">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="地图瓦片在线爬取"/>
+  <meta property="og:description" content="用于个人笔记" />
+  <meta property="og:site_name" content="liyang&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://buildlove.github.ioundefined"/>
+  
+    <link rel="alternate" href="/atom.xml" title="liyang&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>liyang's blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">地图瓦片在线爬取</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/buildlove">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:mkdir_yang@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://www.jianshu.com/u/c4bc363ac296">
+                  
+                  简书
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Screenshot 2015</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-02-27</span>
+            <span class="time">16:26:13</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/hexo/">#hexo</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>node 的简单爬虫以及静态服务器的搭建<br><a id="more"></a></p>
+<p>由于很多时候需要在封闭的环境下使用地图底图, 写了一个爬取在线地图瓦片作为静态地图服务器的简单程序, js 代码 180 行, html 不到 10行, 废话不多说直接 <a href="https://github.com/buildlove/grap-map-tiles" target="_blank" rel="external">github源码</a> 。</p>
+<h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h2><p><img src="https://upload-images.jianshu.io/upload_images/12240257-c2a246f227a862b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ul>
+<li>启动服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">npm install</div><div class="line">node app.js || npm run dev</div></pre></td></tr></table></figure>
+<ul>
+<li><p>在本地浏览器中打开 client/index.html</p>
+</li>
+<li><p>在页面中滚动鼠标 leaflet 插件会去请求地图瓦片</p>
+</li>
+</ul>
+<h2 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h2><blockquote>
+<p>app.js</p>
+</blockquote>
+<ul>
+<li><p>服务器接收瓦片请求并判断是否存在该瓦片。</p>
+</li>
+<li><p>存在瓦片则返回瓦片, 不存在则加入缓存等待下载。</p>
+</li>
+</ul>
+<blockquote>
+<p>downloadMap.js</p>
+</blockquote>
+<ul>
+<li><p>缓存链接到数组内。</p>
+</li>
+<li><p>服务端会每隔1秒检查数组内是否有链接 有则去下载。</p>
+</li>
+</ul>
+<h2 id="地图相关"><a href="#地图相关" class="headerlink" title="地图相关"></a>地图相关</h2><ul>
+<li><p>Arcgis 官方使用插件 dojo.js 来接入地图底图。</p>
+</li>
+<li><p>dojo.js 除了展示底图几乎一无是处, dojo.js 和 require.js 有冲突。</p>
+</li>
+<li><p>Arcgis 工具分为制作底图的客户端 ArcMap, 服务器 Arcgis Server。</p>
+</li>
+<li><p>leaflet 有相当多的接口和插件来制作地图工具。</p>
+</li>
+<li><p>ArcMap 在发布服务时一定要设置好参数, 不然 leaflet 不能接入底图。</p>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Sharing and growing is important
+        <p class="copyright text-muted">
+          thanks for <a target="_blank" href="https://github.com/buildlove">myself</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

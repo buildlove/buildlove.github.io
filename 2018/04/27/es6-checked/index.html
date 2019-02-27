@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用于个人笔记">
+  <meta name="author" content="Screenshot 2015">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="es6标准化检测"/>
+  <meta property="og:description" content="用于个人笔记" />
+  <meta property="og:site_name" content="liyang&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://buildlove.github.ioundefined"/>
+  
+    <link rel="alternate" href="/atom.xml" title="liyang&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>liyang's blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">es6标准化检测</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/buildlove">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:mkdir_yang@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://www.jianshu.com/u/c4bc363ac296">
+                  
+                  简书
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Screenshot 2015</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-04-27</span>
+            <span class="time">16:26:13</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/hexo/">#hexo</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>webstorm 标准配置<br><a id="more"></a></p>
+<p>打开 webstorm 进行设置 ( File &gt;&gt; setting &gt;&gt; Languages &amp; Frameworks &gt;&gt; JavaScript &gt;&gt; ECMAScript 6 )。</p>
+<ul>
+<li><p>当你设置好 es6 规范之后, 使用webstorm编程, 右边的语法检错几乎没有红色和黄色的报错的时候, 恭喜你, 你已经养成了使用 es6 标准编程的习惯。</p>
+</li>
+<li><p>jquery和其他的一些插件也有自己的 Typescript 验证模块, 如果不引入这些插件的验证模块可能会报白色错误(配置在第 12 个报错)。</p>
+</li>
+<li><p>本文所有的报错均为黄色或者白色报错，可能几乎不会影响程序的运行。</p>
+</li>
+</ul>
+<h3 id="1-使用-var-作为声明变量的方法报错"><a href="#1-使用-var-作为声明变量的方法报错" class="headerlink" title="1. 使用 var 作为声明变量的方法报错"></a>1. 使用 var 作为声明变量的方法报错</h3><blockquote>
+<p>注意: 改的时候注意 var 的变量提升。</p>
+</blockquote>
+<p>  es6 里面声明变量都改成 let 和 const, 如果使用 var 作为声明方法, webstorm 会报错。 <a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="external"> let 和 var 的区别</a>。</p>
+<h3 id="2-每行代码结束的时候不添加分号报错-使用-standardjs-标准的无视"><a href="#2-每行代码结束的时候不添加分号报错-使用-standardjs-标准的无视" class="headerlink" title="2. 每行代码结束的时候不添加分号报错(使用 standardjs 标准的无视)"></a>2. 每行代码结束的时候不添加分号报错(使用 standardjs 标准的无视)</h3><blockquote>
+<p>注意: 并不是每行代码都加分号, 函数结尾的 ‘}’ 添加分号也会报黄色错误。</p>
+</blockquote>
+<h3 id="3-jquery选择器选择两次的情况下报错"><a href="#3-jquery选择器选择两次的情况下报错" class="headerlink" title="3. jquery选择器选择两次的情况下报错"></a>3. jquery选择器选择两次的情况下报错</h3><blockquote>
+<p>注意: 以下的 $ 每出现一次代表一次 DOM 操作, DOM 频繁操作会影响浏览器性能。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">  $(&quot;.select&quot;).addClass(&quot;active&quot;);</div><div class="line"></div><div class="line">  $(&quot;.select&quot;).removeClass(&quot;active&quot;);</div><div class="line"></div><div class="line">修改为</div><div class="line"></div><div class="line">  let select = $(&quot;.select&quot;); //这里只选择了一次。</div><div class="line"></div><div class="line">  select.addClass(&quot;active&quot;);</div><div class="line"></div><div class="line">  select.removeClass(&quot;active&quot;);</div></pre></td></tr></table></figure>
+<h3 id="4-使用”-”的报错"><a href="#4-使用”-”的报错" class="headerlink" title="4. 使用”==”的报错"></a>4. 使用”==”的报错</h3><ul>
+<li><p>“==” 叫相等运算符,  “===” 叫严格等于运算符。</p>
+</li>
+<li><p>相等运算符会导致一些变量在值相等而类型不等的情况下出现问题。(具体情况自行百度, 我只能帮你到这里了)。</p>
+<p>需要把两个等号”==”的全部换成三个等号”===”。</p>
+</li>
+</ul>
+<h3 id="5-三元运算符报错"><a href="#5-三元运算符报错" class="headerlink" title="5. 三元运算符报错"></a>5. 三元运算符报错</h3><blockquote>
+<p>这里可能只是因为es6不许你这么用。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">let isover = query.rowCount === -1 ? false : true; // 这种写法会有很大一条横线在整个语句下</div><div class="line"></div><div class="line">改为</div><div class="line"></div><div class="line">let isover;</div><div class="line"></div><div class="line">query.rowCount === -1 ? isover = false : isover = true;</div></pre></td></tr></table></figure>
+<h3 id="6-一个表达式里面有多个-return-报错"><a href="#6-一个表达式里面有多个-return-报错" class="headerlink" title="6. 一个表达式里面有多个 return 报错"></a>6. 一个表达式里面有多个 return 报错</h3><blockquote>
+<p>一般最后一个 return 下面会有很大一条白线</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">  function myfun () &#123;</div><div class="line"></div><div class="line">    let myNum = 1;</div><div class="line"></div><div class="line">    if( myNum )&#123;</div><div class="line"></div><div class="line">      return 2;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return 1;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  改为</div><div class="line"></div><div class="line">  function myfun () &#123;</div><div class="line"></div><div class="line">    let myNum = 1;</div><div class="line"></div><div class="line">    let result; </div><div class="line"></div><div class="line">    if ( myNum )&#123;</div><div class="line"></div><div class="line">      result = myNum;</div><div class="line"></div><div class="line">    &#125; else &#123;</div><div class="line"></div><div class="line">      result = 3;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return result;</div><div class="line"></div><div class="line">  &#125;   </div><div class="line"></div><div class="line">```   </div><div class="line"></div><div class="line">### 7. 对对象进行 for in 遍历时直接使用迭代值会报错</div><div class="line"></div><div class="line">  - for in 的方法描述是&quot;遍历能够枚举继承的属性名&quot;</div><div class="line"></div><div class="line">  - 当遍历对象时必须确认是否对象内继承了该属性</div><div class="line"></div><div class="line">  所以在遍历时需要加上</div></pre></td></tr></table></figure>
+<p>  for（var i in a）{</p>
+<pre><code>if( !a.hasOwnProperty(i) ) continue;//跳过继承的属性
+
+//循环体
+</code></pre><p>  }</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">### 8.冗余代码报错</div></pre></td></tr></table></figure>
+<p>  function test () {</p>
+<pre><code>let result = {}; // 这里的变量result会有一行白线, 告诉你这个变量没必要定义。
+
+return result
+</code></pre><p>  }</p>
+<p>  改为</p>
+<pre><code>function test () {
+
+  return {}
+</code></pre><p>  }</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">### 9.备注(参数缺少)报错</div><div class="line"></div><div class="line">&gt; 使用备注的时候, 参数一定要写全</div></pre></td></tr></table></figure>
+<p>  /**</p>
+<ul>
+<li><p>下载文件</p>
+</li>
+<li><p>@param path 路径</p>
+</li>
+<li><p>@param type 文件类型</p>
+</li>
+</ul>
+<p>*/</p>
+<p>function downloadFile( path, type, id ) { // 参数id下面有白色的线, 提示没有备注</p>
+<p>// your code …….</p>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">### 10. 没有用到的变量报错</div><div class="line"></div><div class="line">&gt; 定义了一个变量, 之后都没有引用会报黄色错误</div><div class="line"></div><div class="line">### 11. 监听事件报错</div><div class="line"></div><div class="line">&gt; 这里并不是强制性会报错，只是引用jquery插件后</div></pre></td></tr></table></figure>
+<p>$(‘.btn’).click(function(){})</p>
+<p>改为</p>
+<p>$(‘.btn’).on(‘click’,function(){})</p>
+<p>```</p>
+<h3 id="12-html引入路径报错"><a href="#12-html引入路径报错" class="headerlink" title="12.html引入路径报错"></a>12.html引入路径报错</h3><blockquote>
+<p>当引入一段相对路径的文件, 代码块下方会有一条白色横线。</p>
+</blockquote>
+<p>如果你的public文件夹是项目的静态文件根目录，右键public &gt;&gt; Mark Directory as &gt;&gt; Resource Root</p>
+<h3 id="13-unresolved-function-or-method-白色错误"><a href="#13-unresolved-function-or-method-白色错误" class="headerlink" title="13. unresolved function or method $() 白色错误"></a>13. unresolved function or method $() 白色错误</h3><blockquote>
+<p>鼠标放在右边错误上显示以上错误或者类似的错误都是没有引入库的原因</p>
+</blockquote>
+<p>解决方法:</p>
+<ul>
+<li><p>根据以下操作路径 File &gt;&gt; setting &gt;&gt; Languages &amp; Frameworks &gt;&gt; JavaScript &gt;&gt; Libraries 找到面板上面的download按钮</p>
+</li>
+<li><p>ctrl+F 然后输入 jquery 或者其他的什么库，然后点击库下载 ts 验证模块链接。</p>
+</li>
+<li><p>此设置可能会出现 jquery 或其他插件的语法规范。</p>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Sharing and growing is important
+        <p class="copyright text-muted">
+          thanks for <a target="_blank" href="https://github.com/buildlove">myself</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
