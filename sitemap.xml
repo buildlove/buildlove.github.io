@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://buildlove.github.io/2016/08/24/database/</loc>
+    
+    <lastmod>2019-02-28T05:01:55.755Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://buildlove.github.io/README.html</loc>
     
     <lastmod>2019-02-27T09:05:25.376Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>http://buildlove.github.io/2016/10/08/git-difftool/</loc>
     
     <lastmod>2019-02-27T08:04:08.306Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://buildlove.github.io/2016/08/24/database/</loc>
-    
-    <lastmod>2019-02-27T08:03:23.357Z</lastmod>
     
   </url>
   
