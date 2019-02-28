@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://buildlove.github.io/"/>
-  <updated>2019-02-27T08:21:30.752Z</updated>
+  <updated>2019-02-28T05:14:47.355Z</updated>
   <id>http://buildlove.github.io/</id>
   
   <author>
@@ -20,10 +20,9 @@
     <link href="http://buildlove.github.io/2018/06/27/vue-webpack-pro/"/>
     <id>http://buildlove.github.io/2018/06/27/vue-webpack-pro/</id>
     <published>2018-06-27T08:11:45.000Z</published>
-    <updated>2019-02-27T08:21:30.752Z</updated>
+    <updated>2019-02-28T05:14:47.355Z</updated>
     
-    <content type="html"><![CDATA[<p>老板给的面试题目<br><a id="more"></a></p>
-<p><a href="https://github.com/buildlove/vue-practice" target="_blank" rel="external">github源码</a></p>
+    <content type="html"><![CDATA[<p><a href="https://github.com/buildlove/vue-practice" target="_blank" rel="external">github源码</a></p>
 <p>通过一个小产品总结过去一段时间的学习。</p>
 <ul>
 <li>vue 框架</li>
@@ -57,7 +56,7 @@
     
     <summary type="html">
     
-      用于个人笔记
+      通过一个小产品总结过去一段时间的学习。
     
     </summary>
     
@@ -71,7 +70,7 @@
     <link href="http://buildlove.github.io/2018/04/27/es6-checked/"/>
     <id>http://buildlove.github.io/2018/04/27/es6-checked/</id>
     <published>2018-04-27T08:12:38.000Z</published>
-    <updated>2019-02-27T08:23:15.739Z</updated>
+    <updated>2019-02-28T05:13:22.564Z</updated>
     
     <content type="html"><![CDATA[<p>webstorm 标准配置<br><a id="more"></a></p>
 <p>打开 webstorm 进行设置 ( File &gt;&gt; setting &gt;&gt; Languages &amp; Frameworks &gt;&gt; JavaScript &gt;&gt; ECMAScript 6 )。</p>
@@ -164,7 +163,7 @@ return result
     
     <summary type="html">
     
-      用于个人笔记
+      webstorm 标准配置
     
     </summary>
     
@@ -178,7 +177,7 @@ return result
     <link href="http://buildlove.github.io/2018/02/27/map-spider/"/>
     <id>http://buildlove.github.io/2018/02/27/map-spider/</id>
     <published>2018-02-27T08:13:19.000Z</published>
-    <updated>2019-02-27T08:22:37.588Z</updated>
+    <updated>2019-02-28T05:13:56.698Z</updated>
     
     <content type="html"><![CDATA[<p>node 的简单爬虫以及静态服务器的搭建<br><a id="more"></a></p>
 <p>由于很多时候需要在封闭的环境下使用地图底图, 写了一个爬取在线地图瓦片作为静态地图服务器的简单程序, js 代码 180 行, html 不到 10行, 废话不多说直接 <a href="https://github.com/buildlove/grap-map-tiles" target="_blank" rel="external">github源码</a> 。</p>
@@ -227,7 +226,7 @@ return result
     
     <summary type="html">
     
-      用于个人笔记
+      node 的简单爬虫以及静态服务器的搭建
     
     </summary>
     
@@ -241,7 +240,7 @@ return result
     <link href="http://buildlove.github.io/2018/01/27/module-common/"/>
     <id>http://buildlove.github.io/2018/01/27/module-common/</id>
     <published>2018-01-27T08:10:29.000Z</published>
-    <updated>2019-02-27T08:15:57.803Z</updated>
+    <updated>2019-02-28T05:14:03.306Z</updated>
     
     <content type="html"><![CDATA[<p>js模块加载标准<br><a id="more"></a></p>
 <p>熟悉模块加载标准之后</p>
@@ -297,7 +296,7 @@ return result
     
     <summary type="html">
     
-      用于个人笔记
+      js模块加载标准
     
     </summary>
     
@@ -311,7 +310,7 @@ return result
     <link href="http://buildlove.github.io/2016/11/09/hexo/"/>
     <id>http://buildlove.github.io/2016/11/09/hexo/</id>
     <published>2016-11-09T02:03:40.000Z</published>
-    <updated>2019-02-27T08:34:37.375Z</updated>
+    <updated>2019-02-28T05:13:42.398Z</updated>
     
     <content type="html"><![CDATA[<p>hexo学习配置<br><a id="more"></a></p>
 <h2 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h2><p>Hexo官网 (右侧可以选择中文简体)<br><a href="http://hexo.io/" target="_blank" rel="external">http://hexo.io/</a></p>
@@ -349,7 +348,7 @@ return result
     <link href="http://buildlove.github.io/2016/10/13/mongoose/"/>
     <id>http://buildlove.github.io/2016/10/13/mongoose/</id>
     <published>2016-10-13T09:02:12.000Z</published>
-    <updated>2019-02-27T08:06:36.129Z</updated>
+    <updated>2019-02-28T05:14:08.691Z</updated>
     
     <content type="html"><![CDATA[<p>mongodb 使用方式<br><a id="more"></a></p>
 <p>主要目录文件所在位置<br>path: /usr/local/mongodb<br>mongod.lock: 根目录/data/db/mongod.lock<br>logpath=/usr/local/mongodb/logs/mongodb.log<br>/data/db: 根目录/data/db<br>配置文件：/usr/local/mongodb/bin/mongodb.conf</p>
@@ -378,7 +377,7 @@ return result
     
     <summary type="html">
     
-      用于个人笔记
+      mongodb 使用方式
     
     </summary>
     
@@ -396,7 +395,7 @@ return result
     <link href="http://buildlove.github.io/2016/10/08/git-difftool/"/>
     <id>http://buildlove.github.io/2016/10/08/git-difftool/</id>
     <published>2016-10-08T09:09:53.000Z</published>
-    <updated>2019-02-27T08:04:08.306Z</updated>
+    <updated>2019-02-28T05:13:28.097Z</updated>
     
     <content type="html"><![CDATA[<p>window 和 mac 下的对比工具配置<br><a id="more"></a></p>
 <h2 id="首先下载Beyond-Compare"><a href="#首先下载Beyond-Compare" class="headerlink" title="首先下载Beyond Compare"></a>首先下载Beyond Compare</h2><p>windows: <a href="http://www.scootersoftware.com/BCompare-4.1.9.21719.exe" target="_blank" rel="external">http://www.scootersoftware.com/BCompare-4.1.9.21719.exe</a><br>mac: <a href="http://www.scootersoftware.com/BCompareOSX-4.1.9.21719.zip" target="_blank" rel="external">http://www.scootersoftware.com/BCompareOSX-4.1.9.21719.zip</a><br>rm -rf “/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat”</p>
@@ -412,7 +411,7 @@ return result
     
     <summary type="html">
     
-      用于个人笔记
+      window 和 mac 下的对比工具配置
     
     </summary>
     
@@ -428,7 +427,7 @@ return result
     <link href="http://buildlove.github.io/2016/08/24/database/"/>
     <id>http://buildlove.github.io/2016/08/24/database/</id>
     <published>2016-08-24T10:23:57.000Z</published>
-    <updated>2019-02-28T05:01:55.755Z</updated>
+    <updated>2019-02-28T05:13:15.926Z</updated>
     
     <content type="html"><![CDATA[<p>mongodb 和 mysql 安装<br><a id="more"></a></p>
 <p>#mac内默认全局变量文件<br>etc/paths</p>
@@ -444,7 +443,7 @@ return result
     
     <summary type="html">
     
-      用于个人笔记
+      mongodb 和 mysql 安装
     
     </summary>
     
@@ -460,7 +459,7 @@ return result
     <link href="http://buildlove.github.io/2016/07/22/npm/"/>
     <id>http://buildlove.github.io/2016/07/22/npm/</id>
     <published>2016-07-22T04:00:04.000Z</published>
-    <updated>2019-02-27T08:06:54.168Z</updated>
+    <updated>2019-02-28T05:14:13.908Z</updated>
     
     <content type="html"><![CDATA[<p>npm 深入一点点了解<br><a id="more"></a></p>
 <h2 id="npm命令行参数"><a href="#npm命令行参数" class="headerlink" title="npm命令行参数"></a>npm命令行参数</h2><p>全局环境默认路径： “C:\Users\liyang\AppData\Roaming\npm\node_modules” and “/usr/local/lib/node_modules”</p>
@@ -473,7 +472,7 @@ return result
     
     <summary type="html">
     
-      用于个人笔记
+      npm 深入一点点了解
     
     </summary>
     
@@ -491,7 +490,7 @@ return result
     <link href="http://buildlove.github.io/2016/03/24/mac-python/"/>
     <id>http://buildlove.github.io/2016/03/24/mac-python/</id>
     <published>2016-03-24T08:39:14.000Z</published>
-    <updated>2019-02-27T08:05:48.834Z</updated>
+    <updated>2019-02-28T05:13:51.083Z</updated>
     
     <content type="html"><![CDATA[<p>python 踩过的其中一个坑<br><a id="more"></a></p>
 <h2 id="一切要从这篇文章说起"><a href="#一切要从这篇文章说起" class="headerlink" title="一切要从这篇文章说起"></a>一切要从这篇文章说起</h2><blockquote>
@@ -511,7 +510,7 @@ return result
     
     <summary type="html">
     
-      用于个人笔记
+      python 踩过的其中一个坑
     
     </summary>
     
@@ -529,7 +528,7 @@ return result
     <link href="http://buildlove.github.io/2016/03/08/python/"/>
     <id>http://buildlove.github.io/2016/03/08/python/</id>
     <published>2016-03-08T06:27:06.000Z</published>
-    <updated>2019-02-27T08:07:39.751Z</updated>
+    <updated>2019-02-28T05:15:03.538Z</updated>
     
     <content type="html"><![CDATA[<p>python 基础学习<br><a id="more"></a></p>
 <p>环境 win7 python3.4</p>
@@ -572,7 +571,7 @@ return result
     <link href="http://buildlove.github.io/2015/12/21/ubuntu/"/>
     <id>http://buildlove.github.io/2015/12/21/ubuntu/</id>
     <published>2015-12-21T08:57:01.000Z</published>
-    <updated>2019-02-27T08:08:29.457Z</updated>
+    <updated>2019-02-28T05:14:54.457Z</updated>
     
     <content type="html"><![CDATA[<p>linux-ubuntu 基础学习<br><a id="more"></a></p>
 <h2 id="sudo-apt-get-update出现很多404"><a href="#sudo-apt-get-update出现很多404" class="headerlink" title="sudo apt-get update出现很多404"></a>sudo apt-get update出现很多404</h2><p>替换目录/etc/apt/sources.list中的源<br>网易163<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-backports main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="external">http://mirrors.163.com/ubuntu/</a> lucid-backports main restricted universe multiverse<br>或者搜狐更新服务器：<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-backports main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-security main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-updates main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-proposed main restricted universe multiverse<br>deb-src <a href="http://mirrors.sohu.com/ubuntu/" target="_blank" rel="external">http://mirrors.sohu.com/ubuntu/</a> lucid-backports main restricted universe multiverse</p>
@@ -605,7 +604,7 @@ return result
     <link href="http://buildlove.github.io/2015/12/08/Git/"/>
     <id>http://buildlove.github.io/2015/12/08/Git/</id>
     <published>2015-12-08T08:26:08.000Z</published>
-    <updated>2019-02-27T08:04:44.640Z</updated>
+    <updated>2019-02-28T05:13:35.115Z</updated>
     
     <content type="html"><![CDATA[<p>git 常用命令<br><a id="more"></a></p>
 <h2 id="设置常用别名"><a href="#设置常用别名" class="headerlink" title="设置常用别名"></a>设置常用别名</h2><p>git config <code>--</code>global alias.co checkout<br>git config <code>--</code>global alias.ci commit<br>git config <code>--</code>global alias.br branch<br>git config <code>--</code>global alias.unstage ‘reset HEAD’<br>git config <code>--</code>global alias.last ‘log -1’<br>git config <code>--</code>global alias.lg “log –color –graph –pretty=format:’%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset’ –abbrev-commit”</p>
@@ -627,7 +626,7 @@ return result
     
     <summary type="html">
     
-      仅用于个人笔记
+      git 常用命令
     
     </summary>
     
@@ -643,7 +642,7 @@ return result
     <link href="http://buildlove.github.io/2015/11/08/photoshop/"/>
     <id>http://buildlove.github.io/2015/11/08/photoshop/</id>
     <published>2015-11-08T02:20:08.000Z</published>
-    <updated>2019-02-27T08:08:58.075Z</updated>
+    <updated>2019-02-28T05:14:21.334Z</updated>
     
     <content type="html"><![CDATA[<p>ps 基础学习<br><a id="more"></a></p>
 <blockquote>
@@ -741,7 +740,7 @@ return result
     
     <summary type="html">
     
-      仅用于个人笔记
+      ps 基础学习
     
     </summary>
     
