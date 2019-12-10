@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>js模块加载标准 | liyang&#39;s blog</title>
+<meta name="description" content="Stay hungry,stay foolish.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://buildlove.github.io//favicon.ico?v=1575968403564">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://buildlove.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://buildlove.github.io/">
+        <img src="https://buildlove.github.io//images/avatar.png?v=1575968403564" class="site-logo">
+        <h1 class="site-title">liyang&#39;s blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/buildlove" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/p/1005055262145166/home?from=page_100505_profile&amp;wvr=6&amp;mod=data&amp;is_all=1#place" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/buildlove/activities" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.facebook.com/profile.php?id=100008166199067" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      Stay hungry,stay foolish.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/buildlove" target="_blank">buildlove</a> | <a class="rss" href="https://buildlove.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">js模块加载标准</h2>
+            <div class="post-date">2019-09-24 16-43-33</div>
+            
+            <div class="post-content">
+              <p>熟悉模块加载标准之后</p>
+<ol>
+<li>
+<p>浏览器 html 文本插入非常多 script 标签时，异步加载这些标签，使页面响应速度变快。</p>
+</li>
+<li>
+<p>管理代码拆分，前端模块化/工程化，便于代码的编写和维护。</p>
+</li>
+<li>
+<p>更快的看懂一个新的项目。</p>
+</li>
+</ol>
+<p>目前最流行的三种模块加载标准是 Commonjs / AMD / CMD</p>
+<h3 id="commonjs">CommonJs</h3>
+<p>commonjs 简单运用步骤</p>
+<p>1.一个文件一个模块, 文件内定义一个函数a</p>
+<p>2.把对象 { a : a } 赋值给 module.exports 暴露出去。</p>
+<p>3.使用 let moduleA = require(&quot;libs/a&quot;) 来接收这个模块</p>
+<p>4.moduleA.a() 来执行这个函数</p>
+<p>5.commonjs 标准在浏览器端用不了</p>
+<blockquote>
+<p>node 使用 commonjs 加载机制</p>
+</blockquote>
+<h3 id="amd">AMD</h3>
+<p>浏览器是同步加载 js 的, 当大量的 script标签同步引入的时候会阻塞页面渲染</p>
+<p>AMD 加载 js 的好处</p>
+<p>1. 异步加载 script 标签, 减少页面失去响应的时间。</p>
+<p>2. 实时添加时间戳, 防止开发过程中 js 加载后被缓存(无论怎么改代码都报错,需要强制清空浏览器缓存)。</p>
+<ol start="3">
+<li>前端模块化, 便于编写和维护。</li>
+</ol>
+<blockquote>
+<p>实现前端 AMD 方式加载 js 的前端插件是 require.js</p>
+</blockquote>
+<p>以下是 require.js 的配置/自定义模块/以及使用的简单例子(以下例子纯属手打, 如果有错误, 无视就好)</p>
+<pre><code>// html中引用require.js以及配置
+&lt;script type=&quot;text/javascript&quot; src=&quot;javascripts/require.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  require.config({
+    // 给每一个加载的js链接之后添加时间戳,防止插件被缓存。
+    urlArgs: &quot;v=&quot; + (new Date()).getTime()
+    waitSeconds: 0,
+    paths: {
+        'jquery': 'javascripts/jquery.min',
+        'angular': 'javascripts/angular.min',
+        'myjs': 'javascripts/myjs'
+    },
+    shim: {
+        'jquery':{
+            exports: ['jquery']
+        },
+        'angular':{
+            deps : [&quot;jquery&quot;]//依赖jquery
+        },
+        'myjs':{
+            deps : [&quot;jquery&quot;, &quot;angular&quot;]//依赖jquery和angular
+        }
+    }
+  })
+&lt;script&gt;
+</code></pre>
+<pre><code>//自定义模块myjs
+define(&quot;initMapControll&quot;,[
+  &quot;jquery&quot;,
+  &quot;angular&quot;
+],  function($,angular){
+  function run{
+    return &quot;AMD&quot;
+  }
+  module.export = {
+    run: run
+  }
+})
+</code></pre>
+<pre><code>//自定义模块的使用
+    require([&quot;myjs&quot;],function(myjs){
+        myjs.run() //打印&quot;AMD&quot;
+    })
+</code></pre>
+<h3 id="cmd">CMD</h3>
+<blockquote>
+<p>实现前端 CMD 方式加载 js 的前端插件是 sea.js, 是中国人写的。</p>
+</blockquote>
+<ol>
+<li>
+<p>和 require.js 写法上差不多。</p>
+</li>
+<li>
+<p>sea.js 加载方式也是异步加载(加载时会去把模块变为字符串去找一遍依赖, 找到后先加载)。</p>
+</li>
+<li>
+<p>使用 factory 的方式定义模块, 可以在每一个页面配置一个 config.js 文件, sea.js 会自动合并配置文件。</p>
+</li>
+<li>
+<p><a href="http://tinyambition.com/HelloSea.js/index.html">参考资料</a>看到一个有意思的黑科技, 把 node 模块转化为 CMD 或者 AMD 的加载方式让浏览器加载。</p>
+</li>
+</ol>
+<h3 id="demo">demo</h3>
+<pre><code>(function (root, factory) {
+  if (typeof define === 'function' &amp;&amp; define.amd) {
+    // AMD
+    define('backbone', ['jquery', 'underscore'], function (jQuery, _) {
+      return factory(jQuery, _);
+    });
+  } else if (typeof exports === 'object') {
+  // Node.js
+    module.exports = factory(require('jquery'), require('underscore'));
+  } else {
+    // Browser globals
+    root.Backbone = factory(root.jQuery, root._);
+  }
+}(this, function (jQuery, _) {
+  var Backbone = {};
+  // Backbone code that depends on jQuery and _
+  return Backbone;
+
+}));
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://buildlove.github.io//post/git-chang-yong-ming-ling">
+                  <h3 class="post-title">
+                    git 常用命令
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

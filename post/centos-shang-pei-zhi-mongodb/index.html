@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | liyang&#39;s blog</title>
+<title>centos上配置mongodb | liyang&#39;s blog</title>
 <meta name="description" content="Stay hungry,stay foolish.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -107,70 +107,76 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">centos上配置mongodb</h2>
+            <div class="post-date">2019-09-24 16-46-55</div>
+            
+            <div class="post-content">
+              <p>主要目录文件所在位置</p>
+<p>path: /usr/local/mongodb</p>
+<p>mongod.lock: 根目录/data/db/mongod.lock</p>
+<p>logpath=/usr/local/mongodb/logs/mongodb.log</p>
+<p>/data/db: 根目录/data/db</p>
+<p>配置文件：/usr/local/mongodb/bin/mongodb.conf</p>
+<h2 id="下载安装包-解压-移动到usrlocal目录下并改名">下载安装包-解压-移动到/usr/local目录下并改名</h2>
+<p>wget https://fastdl.mongodb.org/linux/mongodb-linux-i686-3.0.2.tgz</p>
+<p>gzip -d mongodb-linux-i686-3.0.2.tgz</p>
+<p>tar xvf mongodb-linux-i686-3.0.2.tar</p>
+<p>mv mongodb-linux-i686-3.0.2 /usr/local/mongodb</p>
+<p>cd /usr/local/mongodb</p>
+<p>mkdir db</p>
+<p>mkdir logs</p>
+<p>cd bin</p>
+<p>vi mongodb.conf</p>
+<h2 id="配置文件">配置文件</h2>
+<p>vi /usr/local/mongodb/mongodb.conf:dbpath=/usr/local/mongodb/db</p>
+<p>写入以下配置项</p>
+<p>logpath=/usr/local/mongodb/logs/mongodb.log</p>
+<p>port=27017</p>
+<p>fork=true</p>
+<p>nohttpinterface=true</p>
+<h2 id="开机自动启动mongodb">开机自动启动mongodb</h2>
+<p>vi /etc/rc.d/rc.local</p>
+<p>/usr/local/mongodb/bin/mongod --config /usr/local/mongodb/bin/mongodb.conf</p>
+<h2 id="重启一下系统测试下能不能自启">重启一下系统测试下能不能自启</h2>
+<p>进入mongodb的shell模式</p>
+<p>/usr/local/mongodb/bin/mongod</p>
+<p>查看数据库列表</p>
+<p>show dbs</p>
+<p>当前db版本</p>
+<p>db.version();</p>
+<h2 id="建立软链接">建立软链接</h2>
+<p>ln -s /usr/local/mongodb/bin/mongod /usr/bin</p>
+<p>ln -s /usr/local/mongodb/bin/mongo /usr/bin</p>
+<h2 id="后台启动或关闭">后台启动或关闭</h2>
+<p>启动（必须带着--logpath）</p>
+<p>mongod --fork --logpath=/usr/local/mongodb/logs/mongodb.log</p>
+<p>(如果报错child process failed -&gt;&gt; rm -rf /data/db/mongod.lock)</p>
+<p>关闭后台</p>
+<p>mongo</p>
+<p>use admin</p>
+<p>db.shutdownServer()</p>
+<h2 id="远程连接mongodb">远程连接mongodb</h2>
+<p>mongo （IP地址）/test -utest -ptest</p>
+<p>没有用户名和密码验证的话，直接使用：</p>
+<p>mongo （IP地址）/test</p>
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
-              
-                
-                  <article class="post">
-                    <a href="https://buildlove.github.io//post/node-pa-qu-wa-pian-zhi-zuo-zi-ji-de-di-tu-fu-wu">
-                      <h2 class="post-title">
-                        node 爬取瓦片制作自己的地图服务
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://buildlove.github.io//post/centos-shang-pei-zhi-mongodb">
-                      <h2 class="post-title">
-                        centos上配置mongodb
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://buildlove.github.io//post/es6-biao-zhun-hua-jian-ce">
-                      <h2 class="post-title">
-                        es6标准化检测
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://buildlove.github.io//post/js-mo-kuai-jia-zai-biao-zhun">
-                      <h2 class="post-title">
-                        js模块加载标准
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://buildlove.github.io//post/git-chang-yong-ming-ling">
-                      <h2 class="post-title">
-                        git 常用命令
-                      </h2>
-                    </a>
-                  </article>
-                
-              
             
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://buildlove.github.io//post/es6-biao-zhun-hua-jian-ce">
+                  <h3 class="post-title">
+                    es6标准化检测
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>

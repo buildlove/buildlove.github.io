@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | liyang&#39;s blog</title>
+<title>node 爬取瓦片制作自己的地图服务 | liyang&#39;s blog</title>
 <meta name="description" content="Stay hungry,stay foolish.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -107,70 +107,89 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">node 爬取瓦片制作自己的地图服务</h2>
+            <div class="post-date">2019-09-24 16-47-56</div>
+            
+            <div class="post-content">
+              <p>由于很多时候需要在封闭的环境下使用地图底图, 写了一个爬取在线地图瓦片作为静态地图服务器的简单程序, js 代码 180 行, html 不到 10行, 废话不多说直接 <a href="https://github.com/buildlove/grap-map-tiles">github源码</a> 。</p>
+<h2 id="展示">展示</h2>
+<figure data-type="image" tabindex="1"><img src="https://upload-images.jianshu.io/upload_images/12240257-c2a246f227a862b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></figure>
+<h2 id="使用方法">使用方法</h2>
+<ul>
+<li>启动服务</li>
+</ul>
+<pre><code>
+  npm install
+  node app.js || npm run dev
+  
+</code></pre>
+<ul>
+<li>
+<p>在本地浏览器中打开 client/index.html</p>
+</li>
+<li>
+<p>在页面中滚动鼠标 leaflet 插件会去请求地图瓦片</p>
+</li>
+</ul>
+<h2 id="爬虫">爬虫</h2>
+<blockquote>
+<p>app.js</p>
+</blockquote>
+<ul>
+<li>
+<p>服务器接收瓦片请求并判断是否存在该瓦片。</p>
+</li>
+<li>
+<p>存在瓦片则返回瓦片, 不存在则加入缓存等待下载。</p>
+</li>
+</ul>
+<blockquote>
+<p>downloadMap.js</p>
+</blockquote>
+<ul>
+<li>
+<p>缓存链接到数组内。</p>
+</li>
+<li>
+<p>服务端会每隔1秒检查数组内是否有链接 有则去下载。</p>
+</li>
+</ul>
+<h2 id="地图相关">地图相关</h2>
+<ul>
+<li>
+<p>Arcgis 官方使用插件 dojo.js 来接入地图底图。</p>
+</li>
+<li>
+<p>dojo.js 除了展示底图几乎一无是处, dojo.js 和 require.js 有冲突。</p>
+</li>
+<li>
+<p>Arcgis 工具分为制作底图的客户端 ArcMap, 服务器 Arcgis Server。</p>
+</li>
+<li>
+<p>leaflet 有相当多的接口和插件来制作地图工具。</p>
+</li>
+<li>
+<p>ArcMap 在发布服务时一定要设置好参数, 不然 leaflet 不能接入底图。</p>
+</li>
+</ul>
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
-              
-                
-                  <article class="post">
-                    <a href="https://buildlove.github.io//post/node-pa-qu-wa-pian-zhi-zuo-zi-ji-de-di-tu-fu-wu">
-                      <h2 class="post-title">
-                        node 爬取瓦片制作自己的地图服务
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://buildlove.github.io//post/centos-shang-pei-zhi-mongodb">
-                      <h2 class="post-title">
-                        centos上配置mongodb
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://buildlove.github.io//post/es6-biao-zhun-hua-jian-ce">
-                      <h2 class="post-title">
-                        es6标准化检测
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://buildlove.github.io//post/js-mo-kuai-jia-zai-biao-zhun">
-                      <h2 class="post-title">
-                        js模块加载标准
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://buildlove.github.io//post/git-chang-yong-ming-ling">
-                      <h2 class="post-title">
-                        git 常用命令
-                      </h2>
-                    </a>
-                  </article>
-                
-              
             
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://buildlove.github.io//post/centos-shang-pei-zhi-mongodb">
+                  <h3 class="post-title">
+                    centos上配置mongodb
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>

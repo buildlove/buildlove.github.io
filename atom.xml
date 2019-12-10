@@ -1,45 +1,596 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buildlove.github.io/</id>
-    <title>Gridea</title>
-    <updated>2019-09-24T08:27:26.182Z</updated>
+    <title>liyang&apos;s blog</title>
+    <updated>2019-12-10T09:00:07.401Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buildlove.github.io/"/>
     <link rel="self" href="https://buildlove.github.io//atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>Stay hungry,stay foolish.</subtitle>
     <logo>https://buildlove.github.io//images/avatar.png</logo>
     <icon>https://buildlove.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, Gridea</rights>
+    <rights>All rights reserved 2019, liyang&apos;s blog</rights>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://buildlove.github.io//post/hello-gridea</id>
-        <link href="https://buildlove.github.io//post/hello-gridea">
+        <title type="html"><![CDATA[node 爬取瓦片制作自己的地图服务]]></title>
+        <id>https://buildlove.github.io//post/node-pa-qu-wa-pian-zhi-zuo-zi-ji-de-di-tu-fu-wu</id>
+        <link href="https://buildlove.github.io//post/node-pa-qu-wa-pian-zhi-zuo-zi-ji-de-di-tu-fu-wu">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+        <updated>2019-09-24T08:47:56.000Z</updated>
+        <content type="html"><![CDATA[<p>由于很多时候需要在封闭的环境下使用地图底图, 写了一个爬取在线地图瓦片作为静态地图服务器的简单程序, js 代码 180 行, html 不到 10行, 废话不多说直接 <a href="https://github.com/buildlove/grap-map-tiles">github源码</a> 。</p>
+<h2 id="展示">展示</h2>
+<figure data-type="image" tabindex="1"><img src="https://upload-images.jianshu.io/upload_images/12240257-c2a246f227a862b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></figure>
+<h2 id="使用方法">使用方法</h2>
+<ul>
+<li>启动服务</li>
+</ul>
+<pre><code>
+  npm install
+  node app.js || npm run dev
+  
+</code></pre>
+<ul>
+<li>
+<p>在本地浏览器中打开 client/index.html</p>
+</li>
+<li>
+<p>在页面中滚动鼠标 leaflet 插件会去请求地图瓦片</p>
+</li>
+</ul>
+<h2 id="爬虫">爬虫</h2>
+<blockquote>
+<p>app.js</p>
+</blockquote>
+<ul>
+<li>
+<p>服务器接收瓦片请求并判断是否存在该瓦片。</p>
+</li>
+<li>
+<p>存在瓦片则返回瓦片, 不存在则加入缓存等待下载。</p>
+</li>
+</ul>
+<blockquote>
+<p>downloadMap.js</p>
+</blockquote>
+<ul>
+<li>
+<p>缓存链接到数组内。</p>
+</li>
+<li>
+<p>服务端会每隔1秒检查数组内是否有链接 有则去下载。</p>
+</li>
+</ul>
+<h2 id="地图相关">地图相关</h2>
+<ul>
+<li>
+<p>Arcgis 官方使用插件 dojo.js 来接入地图底图。</p>
+</li>
+<li>
+<p>dojo.js 除了展示底图几乎一无是处, dojo.js 和 require.js 有冲突。</p>
+</li>
+<li>
+<p>Arcgis 工具分为制作底图的客户端 ArcMap, 服务器 Arcgis Server。</p>
+</li>
+<li>
+<p>leaflet 有相当多的接口和插件来制作地图工具。</p>
+</li>
+<li>
+<p>ArcMap 在发布服务时一定要设置好参数, 不然 leaflet 不能接入底图。</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[centos上配置mongodb]]></title>
+        <id>https://buildlove.github.io//post/centos-shang-pei-zhi-mongodb</id>
+        <link href="https://buildlove.github.io//post/centos-shang-pei-zhi-mongodb">
+        </link>
+        <updated>2019-09-24T08:46:55.000Z</updated>
+        <content type="html"><![CDATA[<p>主要目录文件所在位置</p>
+<p>path: /usr/local/mongodb</p>
+<p>mongod.lock: 根目录/data/db/mongod.lock</p>
+<p>logpath=/usr/local/mongodb/logs/mongodb.log</p>
+<p>/data/db: 根目录/data/db</p>
+<p>配置文件：/usr/local/mongodb/bin/mongodb.conf</p>
+<h2 id="下载安装包-解压-移动到usrlocal目录下并改名">下载安装包-解压-移动到/usr/local目录下并改名</h2>
+<p>wget https://fastdl.mongodb.org/linux/mongodb-linux-i686-3.0.2.tgz</p>
+<p>gzip -d mongodb-linux-i686-3.0.2.tgz</p>
+<p>tar xvf mongodb-linux-i686-3.0.2.tar</p>
+<p>mv mongodb-linux-i686-3.0.2 /usr/local/mongodb</p>
+<p>cd /usr/local/mongodb</p>
+<p>mkdir db</p>
+<p>mkdir logs</p>
+<p>cd bin</p>
+<p>vi mongodb.conf</p>
+<h2 id="配置文件">配置文件</h2>
+<p>vi /usr/local/mongodb/mongodb.conf:dbpath=/usr/local/mongodb/db</p>
+<p>写入以下配置项</p>
+<p>logpath=/usr/local/mongodb/logs/mongodb.log</p>
+<p>port=27017</p>
+<p>fork=true</p>
+<p>nohttpinterface=true</p>
+<h2 id="开机自动启动mongodb">开机自动启动mongodb</h2>
+<p>vi /etc/rc.d/rc.local</p>
+<p>/usr/local/mongodb/bin/mongod --config /usr/local/mongodb/bin/mongodb.conf</p>
+<h2 id="重启一下系统测试下能不能自启">重启一下系统测试下能不能自启</h2>
+<p>进入mongodb的shell模式</p>
+<p>/usr/local/mongodb/bin/mongod</p>
+<p>查看数据库列表</p>
+<p>show dbs</p>
+<p>当前db版本</p>
+<p>db.version();</p>
+<h2 id="建立软链接">建立软链接</h2>
+<p>ln -s /usr/local/mongodb/bin/mongod /usr/bin</p>
+<p>ln -s /usr/local/mongodb/bin/mongo /usr/bin</p>
+<h2 id="后台启动或关闭">后台启动或关闭</h2>
+<p>启动（必须带着--logpath）</p>
+<p>mongod --fork --logpath=/usr/local/mongodb/logs/mongodb.log</p>
+<p>(如果报错child process failed -&gt;&gt; rm -rf /data/db/mongod.lock)</p>
+<p>关闭后台</p>
+<p>mongo</p>
+<p>use admin</p>
+<p>db.shutdownServer()</p>
+<h2 id="远程连接mongodb">远程连接mongodb</h2>
+<p>mongo （IP地址）/test -utest -ptest</p>
+<p>没有用户名和密码验证的话，直接使用：</p>
+<p>mongo （IP地址）/test</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[es6标准化检测]]></title>
+        <id>https://buildlove.github.io//post/es6-biao-zhun-hua-jian-ce</id>
+        <link href="https://buildlove.github.io//post/es6-biao-zhun-hua-jian-ce">
+        </link>
+        <updated>2019-09-24T08:44:28.000Z</updated>
+        <summary type="html"><![CDATA[<p>webstorm 标准配置</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+        <content type="html"><![CDATA[<p>webstorm 标准配置</p>
 <!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+<p>打开 webstorm 进行设置 ( File &gt;&gt; setting &gt;&gt; Languages &amp; Frameworks &gt;&gt; JavaScript &gt;&gt; ECMAScript 6 )。</p>
+<ul>
+<li>
+<p>当你设置好 es6 规范之后, 使用webstorm编程, 右边的语法检错几乎没有红色和黄色的报错的时候, 恭喜你, 你已经养成了使用 es6 标准编程的习惯。</p>
+</li>
+<li>
+<p>jquery和其他的一些插件也有自己的 Typescript 验证模块, 如果不引入这些插件的验证模块可能会报白色错误(配置在第 12 个报错)。</p>
+</li>
+<li>
+<p>本文所有的报错均为黄色或者白色报错，可能几乎不会影响程序的运行。</p>
+</li>
+</ul>
+<h3 id="1-使用-var-作为声明变量的方法报错">1. 使用 var 作为声明变量的方法报错</h3>
+<blockquote>
+<p>注意: 改的时候注意 var 的变量提升。</p>
+</blockquote>
+<p>es6 里面声明变量都改成 let 和 const, 如果使用 var 作为声明方法, webstorm 会报错。 <a href="http://es6.ruanyifeng.com/#docs/let"> let 和 var 的区别</a>。</p>
+<h3 id="2-每行代码结束的时候不添加分号报错使用-standardjs-标准的无视">2. 每行代码结束的时候不添加分号报错(使用 standardjs 标准的无视)</h3>
+<blockquote>
+<p>注意: 并不是每行代码都加分号, 函数结尾的 '}' 添加分号也会报黄色错误。</p>
+</blockquote>
+<h3 id="3-jquery选择器选择两次的情况下报错">3. jquery选择器选择两次的情况下报错</h3>
+<blockquote>
+<p>注意: 以下的 $ 每出现一次代表一次 DOM 操作, DOM 频繁操作会影响浏览器性能。</p>
+</blockquote>
+<pre><code>
+  $(&quot;.select&quot;).addClass(&quot;active&quot;);
+
+  $(&quot;.select&quot;).removeClass(&quot;active&quot;);
+
+修改为
+
+  let select = $(&quot;.select&quot;); //这里只选择了一次。
+
+  select.addClass(&quot;active&quot;);
+
+  select.removeClass(&quot;active&quot;);
+
+</code></pre>
+<h3 id="4-使用的报错">4. 使用&quot;==&quot;的报错</h3>
+<ul>
+<li>
+<p>&quot;<mark>&quot; 叫相等运算符,  &quot;</mark>=&quot; 叫严格等于运算符。</p>
+</li>
+<li>
+<p>相等运算符会导致一些变量在值相等而类型不等的情况下出现问题。(具体情况自行百度, 我只能帮你到这里了)。</p>
+</li>
+</ul>
+<p>需要把两个等号&quot;<mark>&quot;的全部换成三个等号&quot;</mark>=&quot;。</p>
+<h3 id="5-三元运算符报错">5. 三元运算符报错</h3>
+<blockquote>
+<p>这里可能只是因为es6不许你这么用。</p>
+</blockquote>
+<pre><code>
+  let isover = query.rowCount === -1 ? false : true; // 这种写法会有很大一条横线在整个语句下
+
+  改为
+
+  let isover;
+
+  query.rowCount === -1 ? isover = false : isover = true;
+
+
+
+</code></pre>
+<h3 id="6-一个表达式里面有多个-return-报错">6. 一个表达式里面有多个 return 报错</h3>
+<blockquote>
+<p>一般最后一个 return 下面会有很大一条白线</p>
+</blockquote>
+<pre><code>
+  function myfun () {
+
+    let myNum = 1;
+
+    if( myNum ){
+
+      return 2;
+
+    }
+
+    return 1;
+
+  }
+
+  改为
+
+  function myfun () {
+
+    let myNum = 1;
+
+    let result; 
+
+    if ( myNum ){
+
+      result = myNum;
+
+    } else {
+
+      result = 3;
+
+    }
+
+    return result;
+
+  }   
+
+</code></pre>
+<h3 id="7-对对象进行-for-in-遍历时直接使用迭代值会报错">7. 对对象进行 for in 遍历时直接使用迭代值会报错</h3>
+<ul>
+<li>
+<p>for in 的方法描述是&quot;遍历能够枚举继承的属性名&quot;</p>
+</li>
+<li>
+<p>当遍历对象时必须确认是否对象内继承了该属性</p>
+</li>
+</ul>
+<p>所以在遍历时需要加上</p>
+<pre><code>
+for（var i in a）{
+
+  if( !a.hasOwnProperty(i) ) continue;//跳过继承的属性
+
+  //循环体
+
+}
+
+</code></pre>
+<h3 id="8冗余代码报错">8.冗余代码报错</h3>
+<pre><code>
+  function test () {
+
+      let result = {}; // 这里的变量result会有一行白线, 告诉你这个变量没必要定义。
+
+      return result
+
+  }
+
+  改为
+
+    function test () {
+
+      return {}
+
+  }
+
+</code></pre>
+<h3 id="9备注参数缺少报错">9.备注(参数缺少)报错</h3>
+<blockquote>
+<p>使用备注的时候, 参数一定要写全</p>
+</blockquote>
+<pre><code>
+  /**
+
+* 下载文件
+
+* @param path 路径
+
+* @param type 文件类型
+
+*/
+
+function downloadFile( path, type, id ) { // 参数id下面有白色的线, 提示没有备注
+
+// your code .......
+
+}
+
+</code></pre>
+<h3 id="10-没有用到的变量报错">10. 没有用到的变量报错</h3>
+<blockquote>
+<p>定义了一个变量, 之后都没有引用会报黄色错误</p>
+</blockquote>
+<h3 id="11-监听事件报错">11. 监听事件报错</h3>
+<blockquote>
+<p>这里并不是强制性会报错，只是引用jquery插件后</p>
+</blockquote>
+<pre><code>
+$('.btn').click(function(){})
+
+改为
+
+$('.btn').on('click',function(){})
+
+</code></pre>
+<h3 id="12html引入路径报错">12.html引入路径报错</h3>
+<blockquote>
+<p>当引入一段相对路径的文件, 代码块下方会有一条白色横线。</p>
+</blockquote>
+<p>如果你的public文件夹是项目的静态文件根目录，右键public &gt;&gt; Mark Directory as &gt;&gt; Resource Root</p>
+<h3 id="13-unresolved-function-or-method-白色错误">13. unresolved function or method $() 白色错误</h3>
+<blockquote>
+<p>鼠标放在右边错误上显示以上错误或者类似的错误都是没有引入库的原因</p>
+</blockquote>
+<p>解决方法:</p>
+<ul>
+<li>
+<p>根据以下操作路径 File &gt;&gt; setting &gt;&gt; Languages &amp; Frameworks &gt;&gt; JavaScript &gt;&gt; Libraries 找到面板上面的download按钮</p>
+</li>
+<li>
+<p>ctrl+F 然后输入 jquery 或者其他的什么库，然后点击库下载 ts 验证模块链接。</p>
+</li>
+<li>
+<p>此设置可能会出现 jquery 或其他插件的语法规范。</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[js模块加载标准]]></title>
+        <id>https://buildlove.github.io//post/js-mo-kuai-jia-zai-biao-zhun</id>
+        <link href="https://buildlove.github.io//post/js-mo-kuai-jia-zai-biao-zhun">
+        </link>
+        <updated>2019-09-24T08:43:33.000Z</updated>
+        <content type="html"><![CDATA[<p>熟悉模块加载标准之后</p>
+<ol>
+<li>
+<p>浏览器 html 文本插入非常多 script 标签时，异步加载这些标签，使页面响应速度变快。</p>
+</li>
+<li>
+<p>管理代码拆分，前端模块化/工程化，便于代码的编写和维护。</p>
+</li>
+<li>
+<p>更快的看懂一个新的项目。</p>
+</li>
+</ol>
+<p>目前最流行的三种模块加载标准是 Commonjs / AMD / CMD</p>
+<h3 id="commonjs">CommonJs</h3>
+<p>commonjs 简单运用步骤</p>
+<p>1.一个文件一个模块, 文件内定义一个函数a</p>
+<p>2.把对象 { a : a } 赋值给 module.exports 暴露出去。</p>
+<p>3.使用 let moduleA = require(&quot;libs/a&quot;) 来接收这个模块</p>
+<p>4.moduleA.a() 来执行这个函数</p>
+<p>5.commonjs 标准在浏览器端用不了</p>
+<blockquote>
+<p>node 使用 commonjs 加载机制</p>
+</blockquote>
+<h3 id="amd">AMD</h3>
+<p>浏览器是同步加载 js 的, 当大量的 script标签同步引入的时候会阻塞页面渲染</p>
+<p>AMD 加载 js 的好处</p>
+<p>1. 异步加载 script 标签, 减少页面失去响应的时间。</p>
+<p>2. 实时添加时间戳, 防止开发过程中 js 加载后被缓存(无论怎么改代码都报错,需要强制清空浏览器缓存)。</p>
+<ol start="3">
+<li>前端模块化, 便于编写和维护。</li>
+</ol>
+<blockquote>
+<p>实现前端 AMD 方式加载 js 的前端插件是 require.js</p>
+</blockquote>
+<p>以下是 require.js 的配置/自定义模块/以及使用的简单例子(以下例子纯属手打, 如果有错误, 无视就好)</p>
+<pre><code>// html中引用require.js以及配置
+&lt;script type=&quot;text/javascript&quot; src=&quot;javascripts/require.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  require.config({
+    // 给每一个加载的js链接之后添加时间戳,防止插件被缓存。
+    urlArgs: &quot;v=&quot; + (new Date()).getTime()
+    waitSeconds: 0,
+    paths: {
+        'jquery': 'javascripts/jquery.min',
+        'angular': 'javascripts/angular.min',
+        'myjs': 'javascripts/myjs'
+    },
+    shim: {
+        'jquery':{
+            exports: ['jquery']
+        },
+        'angular':{
+            deps : [&quot;jquery&quot;]//依赖jquery
+        },
+        'myjs':{
+            deps : [&quot;jquery&quot;, &quot;angular&quot;]//依赖jquery和angular
+        }
+    }
+  })
+&lt;script&gt;
+</code></pre>
+<pre><code>//自定义模块myjs
+define(&quot;initMapControll&quot;,[
+  &quot;jquery&quot;,
+  &quot;angular&quot;
+],  function($,angular){
+  function run{
+    return &quot;AMD&quot;
+  }
+  module.export = {
+    run: run
+  }
+})
+</code></pre>
+<pre><code>//自定义模块的使用
+    require([&quot;myjs&quot;],function(myjs){
+        myjs.run() //打印&quot;AMD&quot;
+    })
+</code></pre>
+<h3 id="cmd">CMD</h3>
+<blockquote>
+<p>实现前端 CMD 方式加载 js 的前端插件是 sea.js, 是中国人写的。</p>
+</blockquote>
+<ol>
+<li>
+<p>和 require.js 写法上差不多。</p>
+</li>
+<li>
+<p>sea.js 加载方式也是异步加载(加载时会去把模块变为字符串去找一遍依赖, 找到后先加载)。</p>
+</li>
+<li>
+<p>使用 factory 的方式定义模块, 可以在每一个页面配置一个 config.js 文件, sea.js 会自动合并配置文件。</p>
+</li>
+<li>
+<p><a href="http://tinyambition.com/HelloSea.js/index.html">参考资料</a>看到一个有意思的黑科技, 把 node 模块转化为 CMD 或者 AMD 的加载方式让浏览器加载。</p>
+</li>
+</ol>
+<h3 id="demo">demo</h3>
+<pre><code>(function (root, factory) {
+  if (typeof define === 'function' &amp;&amp; define.amd) {
+    // AMD
+    define('backbone', ['jquery', 'underscore'], function (jQuery, _) {
+      return factory(jQuery, _);
+    });
+  } else if (typeof exports === 'object') {
+  // Node.js
+    module.exports = factory(require('jquery'), require('underscore'));
+  } else {
+    // Browser globals
+    root.Backbone = factory(root.jQuery, root._);
+  }
+}(this, function (jQuery, _) {
+  var Backbone = {};
+  // Backbone code that depends on jQuery and _
+  return Backbone;
+
+}));
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[git 常用命令]]></title>
+        <id>https://buildlove.github.io//post/git-chang-yong-ming-ling</id>
+        <link href="https://buildlove.github.io//post/git-chang-yong-ming-ling">
+        </link>
+        <updated>2019-09-24T08:42:08.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="设置常用别名">设置常用别名</h2>
+<p>git config <code>--</code>global alias.co checkout<br>
+git config <code>--</code>global alias.ci commit<br>
+git config <code>--</code>global alias.br branch<br>
+git config <code>--</code>global alias.unstage 'reset HEAD'<br>
+git config <code>--</code>global alias.last 'log -1'<br>
+git config <code>--</code>global alias.lg &quot;log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit&quot;</p>
+<h2 id="常用命令">常用命令</h2>
+<p>git status 查看本地文件状态<br>
+git add 加入暂存区<br>
+git commit -m &quot;why commit&quot; 提交到仓库<br>
+git commit <code>--</code> amend -m &quot;123&quot; 撤销上次提交<br>
+git pull origin master 从远程仓库获取最新版本（解决冲突）<br>
+git push origin master 推送本地修改到远程仓库<br>
+git tag v1.0.1 给本地修改仓库打上tag（这个每次大的提交都非常有必要打包）<br>
+git push origin v1.0.1 推送本地修改版本到远程仓库<br>
+git reflog 打印你的每一次命令（用于版本回退非常牛）<br>
+git reset <code>--</code>hard HEAD^ 回退到上一版本（后面换成HEAD^100 回退到上100个版本）<br>
+git reset <code>--</code>hard 版本ID 回退到想要的版本</p>
+<h2 id="文件操作">文件操作</h2>
+<p>echo &quot;A article&quot; &gt;&gt; readme.txt                                        在readme.txt中新添加一行<br>
+echo &quot;LICENSE is a new file.&quot; &gt; LICENSE                               新增一个文件<br>
+cat readme.txt                                                        查看文件<br>
+rm readme.txt（如果删除错了文件可用 git checkout -- readme.txt恢复）       删除文件</p>
+<h2 id="对暂存区和工作区的操作">对暂存区和工作区的操作</h2>
+<p>git checkout -- readme.txt（别名） 丢弃工作区的修改<br>
+git unstage(别名)                丢弃暂存区的修改</p>
+<h2 id="commit之前优化提交打印">commit之前，优化提交打印</h2>
+<p>git log 查看之前commit的所有打印(如果前3个都是打印的乱七八糟的)<br>
+git reset HEAD~3 退回<br>
+git log(再次查看发现退回到第4个)<br>
+git add -A<br>
+git commit -m &quot;最终优化版本&quot;<br>
+git push origin dev 这样就直接合并了前3次的打印为最终优化版本</p>
+<h2 id="远程仓库">远程仓库</h2>
+<p>git push origin :dev    删除远程dev分支<br>
+git push origin dev:dev 提交本地dev分支为远程dev分支（创建远程分支并合并本地分支到远程分支）</p>
+<h2 id="解决冲突">解决冲突</h2>
+<p>git checkout master         切换到master分支<br>
+git merge dev               merge 哎呀冲突了<br>
+git log                     这时候打开master中冲突文件，删掉冲突的代码<br>
+git add -A                  重新加入暂存<br>
+git commit -m '修改的代码'    重新提交<br>
+git push origin master      推送到远程仓库</p>
+<h2 id="同事修改并push代码到远程dev分支">同事修改并push代码到远程dev分支</h2>
+<p>git stash                     暂存本地修改<br>
+git pull --rebase origin dev  从远程拉下同事代码<br>
+git stash pop                 删除暂存</p>
+<h2 id="公钥和私钥存在于当前目录下的ssh目录id_rsa-和-id_rsapub">公钥和私钥存在于当前目录下的.ssh目录id_rsa 和 id_rsa.pub</h2>
+<p>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;                      创建SSH Key 然后一路回车（登陆Github传上去）<br>
+git remote add origin git@github.com:buildlove/learngit.git       关联远程仓库<br>
+git push -u origin master                                         推送本地提交到远程master仓库（第一次提交需要加-u）<br>
+git clone git@github.com:buildlove/learngit.git                   克隆一个远程仓库到本地<br>
+git pull origin master                                            从远程仓库拉下代码如果有冲突，本地手动解决</p>
+<h2 id="删除远程文件">删除远程文件</h2>
+<p>git rm -r -n <code>--</code>cached  */node_module/*    加上-n这个参数，执行命令时，是不会删除任何文件，要预览删除的文件列表。<br>
+git rm -r -f <code>--</code>cached */node_module/*      删除跟踪状态<br>
+git rm */node_module/* -r -f               删除文件<br>
+git commit -m &quot;移除src目录下所有文件的版本控制&quot;  提交<br>
+git push origin master                      提交到远程服务器</p>
+<h2 id="分支管理">分支管理</h2>
+<p>git branch                查看所有分支<br>
+git branch dev            创建分支<br>
+git co -b dev (别名)      创建一个dev分支并切换到dev分支<br>
+git co                    切换分支<br>
+git merge <code>--</code>no-ff branch-B 可以将某一分支branch-B合并到分支branch-A并将合并记录提交到历史记录中去,但在合并前必须先切换到分支branch-A。<br>
+git branch -d dev         删除dev分支</p>
+<h2 id="标签">标签</h2>
+<p>git tag                                查看所有本地tag标签<br>
+git tag v1.0                           给最新提交的commit打上v1.0标签<br>
+git tag -d v0.1                        删除标签<br>
+git tag v0.9 6224937                   给id=6224937打上标签 v0.9<br>
+git tag -a v0.1 -m &quot;理由&quot; 6224937      打上标签加上原因<br>
+git show v0.1                          查看v0.1说明文字<br>
+git push origin v1.0                   推送标签到远程<br>
+git push origin :refs/tags/v0.9        删除远程标签<br>
+git log <code>--</code>pretty=oneline <code>--</code>abbrev-commit查看标签绑定的提交</p>
+<h2 id="自定义git">自定义git</h2>
+<p>git config <code>--</code>global color.ui true                 配置颜色<br>
+.gitignore    https://github.com/github/gitignore 忽略文档<br>
+git config <code>--</code>global alias.st status               设置别名格式<br>
+cat .git/config                                   查看git配置（要删除别名 找到alias之后的别名删除即可）</p>
+<h2 id="修改项目根目录下gitconfig配置文件">修改项目根目录下.git/config配置文件</h2>
+<p>也能找到全局目录下的git配置文件直接配置</p>
+<p>git init 在目录下配置.git文件<br>
+[core]<br>
+repositoryformatversion = 0 版本库格式<br>
+filemode = false<br>
+bare = false<br>
+logallrefupdates = true<br>
+symlinks = false<br>
+ignorecase = true<br>
+hideDotFiles = dotGitOnly<br>
+[remote &quot;origin&quot;]<br>
+url = https://github.com/git/git.git  这个为自己的git仓库url<br>
+fetch = +refs/heads/<em>:refs/remotes/origin/</em><br>
+[branch &quot;master&quot;]<br>
+remote = origin           git分支<br>
+merge = refs/heads/master<br>
+[user]                      用户自己的个人信息<br>
+email = mkdir_yang@163.com<br>
+name = buildlove<br>
+[gui]<br>
+wmstate = normal<br>
+geometry = 799x475+200+200 159 214<br>
+[alias]                      设置的别名,一般别名都设置成全局的<br>
+co = checkout</p>
 ]]></content>
     </entry>
 </feed>
