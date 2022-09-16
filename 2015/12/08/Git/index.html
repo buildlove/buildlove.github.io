@@ -1,449 +1,265 @@
-
- <!DOCTYPE HTML>
-<html lang="chinese">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  
 
-  <title>Git常用命令 | liyang&#39;s blog</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
-    
-    <meta name="author" content="Screenshot 2015">
-    
-    <meta name="description" itemprop="description" content="git 常用命令">
-    
-    
-    
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="564845354" />
-    <meta name="twitter:title" content="Git常用命令 | liyang&#39;s blog" />
-      
-        <meta name="twitter:description" content="git 常用命令" />
-      
-    
-    
-    <link rel="alternate" href="/atom.xml" title="liyang&#39;s blog" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/http://7viklp.com1.z0.glb.clouddn.com/yilan/img/blog/pacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/http://7viklp.com1.z0.glb.clouddn.com/yilan/img/blog/pacman.jpg">
-    
-    
+  
+  <title>Git常用命令 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="git 常用命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git常用命令">
+<meta property="og:url" content="http://example.com/2015/12/08/Git/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="git 常用命令">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-12-08T08:26:08.000Z">
+<meta property="article:modified_time" content="2022-09-16T07:47:08.320Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="分布式版本管理工具">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
 <link rel="stylesheet" href="/css/style.css">
 
-</head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
-  <body>
-    <header>
-      <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="liyang&#39;s blog" title="liyang&#39;s blog"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="liyang&#39;s blog">liyang&#39;s blog</a></h1>
-				<h2 class="blog-motto">Stay hungry,stay foolish.</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
-					
-					<form class="search" action="//baidu.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:buildlove.github.io">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-			<script type="text/javascript">
-			  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-			  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-			  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-			  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-			  _st('install','ThbyuUMiwzLDsmVUEvye','2.0.0');
-			</script>
-</div>
-
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/12/08/Git/" title="Git常用命令" itemprop="url">Git常用命令</a>
-  </h1>
-  <p class="article-author">By
-    
-      <a href="http://buildlove.github.io" title="Screenshot 2015">Screenshot 2015</a>
-    </p>
-  <p class="article-time">
-    <time datetime="2015-12-08T08:26:08.000Z" itemprop="datePublished">2015-12-08</time>
-    Updated:<time datetime="2020-08-20T09:07:23.263Z" itemprop="dateModified">2020-08-20</time>
-    
-  </p>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
 </header>
-	<div class="article-content">
-		
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%B8%B8%E7%94%A8%E5%88%AB%E5%90%8D"><span class="toc-number">1.</span> <span class="toc-text">设置常用别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">对暂存区和工作区的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#commit%E4%B9%8B%E5%89%8D%EF%BC%8C%E4%BC%98%E5%8C%96%E6%8F%90%E4%BA%A4%E6%89%93%E5%8D%B0"><span class="toc-number">5.</span> <span class="toc-text">commit之前，优化提交打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">6.</span> <span class="toc-text">远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-number">7.</span> <span class="toc-text">解决冲突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%88%86%E6%94%AF%E4%B8%BA%E5%BC%80%E5%8F%91%E5%88%86%E6%94%AF"><span class="toc-number">8.</span> <span class="toc-text">设置分支为开发分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E4%BA%BA%E4%BF%AE%E6%94%B9%E5%B9%B6push%E4%BB%A3%E7%A0%81%E5%88%B0%E8%BF%9C%E7%A8%8Bdev%E5%88%86%E6%94%AF"><span class="toc-number">9.</span> <span class="toc-text">其他人修改并push代码到远程dev分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84-ssh%E7%9B%AE%E5%BD%95id_rsa_%E5%92%8C_id_rsa-pub"><span class="toc-number">10.</span> <span class="toc-text">公钥和私钥存在于当前目录下的.ssh目录id_rsa 和 id_rsa.pub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6"><span class="toc-number">11.</span> <span class="toc-text">删除远程文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="toc-number">12.</span> <span class="toc-text">分支管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE"><span class="toc-number">13.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89git"><span class="toc-number">14.</span> <span class="toc-text">自定义git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B-git/config%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">15.</span> <span class="toc-text">修改项目根目录下.git&#x2F;config配置文件</span></a></li></ol>
-		</div>
-		
-		<p>git 常用命令<br><a id="more"></a></p>
-<h2 id="设置常用别名">设置常用别名</h2><p>git config <code>--</code>global alias.co checkout<br>git config <code>--</code>global alias.ci commit<br>git config <code>--</code>global alias.br branch<br>git config <code>--</code>global alias.unstage ‘reset HEAD’<br>git config <code>--</code>global alias.last ‘log -1’<br>git config <code>--</code>global alias.lg “log –color –graph –pretty=format:’%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset’ –abbrev-commit”</p>
-<h2 id="常用命令">常用命令</h2><p>git status 查看本地文件状态<br>git add 加入暂存区<br>git commit -m “why commit” 提交到仓库<br>git commit <code>--</code> amend -m “123” 撤销上次提交<br>git pull origin master 从远程仓库获取最新版本（解决冲突）<br>git push origin master 推送本地修改到远程仓库<br>git tag v1.0.1 给本地修改仓库打上tag（这个每次大的提交都非常有必要打包）<br>git push origin v1.0.1 推送本地修改版本到远程仓库<br>git reflog 打印你的每一次命令（用于版本回退非常牛）<br>git reset <code>--</code>hard HEAD^ 回退到上一版本（后面换成HEAD^100 回退到上100个版本）<br>git reset <code>--</code>hard 版本ID 回退到想要的版本</p>
-<h2 id="文件操作">文件操作</h2><p>echo “A article” &gt;&gt; readme.txt                                        在readme.txt中新添加一行<br>echo “LICENSE is a new file.” &gt; LICENSE                               新增一个文件<br>cat readme.txt                                                        查看文件<br>rm readme.txt（如果删除错了文件可用 git checkout – readme.txt恢复）       删除文件</p>
-<h2 id="对暂存区和工作区的操作">对暂存区和工作区的操作</h2><p>git checkout – readme.txt（别名） 丢弃工作区的修改<br>git unstage(别名)                丢弃暂存区的修改</p>
-<h2 id="commit之前，优化提交打印">commit之前，优化提交打印</h2><p>git log 查看之前commit的所有打印(如果前3个都是打印的乱七八糟的)<br>git reset HEAD~3 退回<br>git log(再次查看发现退回到第4个)<br>git add -A<br>git commit -m “最终优化版本”<br>git push origin dev 这样就直接合并了前3次的打印为最终优化版本</p>
-<h2 id="远程仓库">远程仓库</h2><p>git push origin :dev    删除远程dev分支<br>git push origin dev:dev 提交本地dev分支为远程dev分支（创建远程分支并合并本地分支到远程分支）</p>
-<h2 id="解决冲突">解决冲突</h2><p>git checkout master         切换到master分支<br>git merge dev               merge 哎呀冲突了<br>git log                     这时候打开master中冲突文件，删掉冲突的代码<br>git add -A                  重新加入暂存<br>git commit -m ‘修改的代码’    重新提交<br>git push origin master      推送到远程仓库</p>
-<h2 id="设置分支为开发分支">设置分支为开发分支</h2><p>git push –set-upstream origin dev-1.0.0 设置之后可以使用git pull或git push直接拉取当前版本分支的代码</p>
-<h2 id="其他人修改并push代码到远程dev分支">其他人修改并push代码到远程dev分支</h2><p>git stash                     暂存本地修改<br>git pull –rebase origin dev  从远程拉下同事代码<br>git stash pop                 删除暂存</p>
-<h2 id="公钥和私钥存在于当前目录下的-ssh目录id_rsa_和_id_rsa-pub">公钥和私钥存在于当前目录下的.ssh目录id_rsa 和 id_rsa.pub</h2><p>ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>“                      创建SSH Key 然后一路回车（登陆Github传上去）<br>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:buildlove/learngit.git       关联远程仓库<br>git push -u origin master                                         推送本地提交到远程master仓库（第一次提交需要加-u）<br>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:buildlove/learngit.git                   克隆一个远程仓库到本地<br>git pull origin master                                            从远程仓库拉下代码如果有冲突，本地手动解决</p>
-<h2 id="删除远程文件">删除远程文件</h2><p>git rm -r -n <code>--</code>cached  <em>/node_module/\</em>    加上-n这个参数，执行命令时，是不会删除任何文件，要预览删除的文件列表。<br>git rm -r -f <code>--</code>cached <em>/node_module/\</em>      删除跟踪状态<br>git rm <em>/node_module/\</em> -r -f               删除文件<br>git commit -m “移除src目录下所有文件的版本控制”  提交<br>git push origin master                      提交到远程服务器</p>
-<h2 id="分支管理">分支管理</h2><p>git branch                查看所有分支<br>git branch dev            创建分支<br>git co -b dev (别名)      创建一个dev分支并切换到dev分支<br>git co                    切换分支<br>git merge <code>--</code>no-ff branch-B 可以将某一分支branch-B合并到分支branch-A并将合并记录提交到历史记录中去,但在合并前必须先切换到分支branch-A。<br>git branch -d dev         删除dev分支</p>
-<h2 id="标签">标签</h2><p>git tag                                查看所有本地tag标签<br>git tag v1.0                           给最新提交的commit打上v1.0标签<br>git tag -d v0.1                        删除标签<br>git tag v0.9 6224937                   给id=6224937打上标签 v0.9<br>git tag -a v0.1 -m “理由” 6224937      打上标签加上原因<br>git show v0.1                          查看v0.1说明文字<br>git push origin v1.0                   推送标签到远程<br>git push origin :refs/tags/v0.9        删除远程标签<br>git log <code>--</code>pretty=oneline <code>--</code>abbrev-commit查看标签绑定的提交</p>
-<h2 id="自定义git">自定义git</h2><p>git config <code>--</code>global color.ui true                 配置颜色<br>.gitignore    <a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a> 忽略文档<br>git config <code>--</code>global alias.st status               设置别名格式<br>cat .git/config                                   查看git配置（要删除别名 找到alias之后的别名删除即可）</p>
-<h2 id="修改项目根目录下-git/config配置文件">修改项目根目录下.git/config配置文件</h2><p>也能找到全局目录下的git配置文件直接配置</p>
-<p>git init 在目录下配置.git文件<br>[core]<br>  repositoryformatversion = 0 版本库格式<br>  filemode = false<br>  bare = false<br>  logallrefupdates = true<br>  symlinks = false<br>  ignorecase = true<br>  hideDotFiles = dotGitOnly<br>[remote “origin”]<br>  url = <a href="https://github.com/git/git.git" target="_blank" rel="noopener">https://github.com/git/git.git</a>  这个为自己的git仓库url<br>  fetch = +refs/heads/<em>:refs/remotes/origin/</em><br>[branch “master”]<br>  remote = origin           git分支<br>  merge = refs/heads/master<br>[user]                      用户自己的个人信息<br>  email = <a href="mailto:mkdir_yang@163.com" target="_blank" rel="noopener">mkdir_yang@163.com</a><br>  name = buildlove<br>[gui]<br>  wmstate = normal<br>  geometry = 799x475+200+200 159 214<br>[alias]                      设置的别名,一般别名都设置成全局的<br>  co = checkout</p>
-  
-	</div>
-		<footer class="article-footer clearfix">
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/分布式版本管理工具/">分布式版本管理工具</a>
+      <div class="outer">
+        <section id="main"><article id="post-Git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/08/Git/" class="article-date">
+  <time datetime="2015-12-08T08:26:08.000Z" itemprop="datePublished">2015-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">分布式版本管理工具</a>
   </div>
 
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">分布式版本管理工具</a>
-</div>
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://buildlove.github.io/2015/12/08/Git/" data-title="Git常用命令 | liyang&#39;s blog" data-tsina="" class="share clearfix">
   </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Git常用命令
+    </h1>
+  
 
-</div>
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2015/12/21/ubuntu/" title="ubuntu14.10遇到的问题">
-  <strong>上一篇:</strong><br/>
-  <span>
-  ubuntu14.10遇到的问题</span>
-</a>
-</div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>git 常用命令</p>
+<span id="more"></span>
 
+<h2 id="设置常用别名"><a href="#设置常用别名" class="headerlink" title="设置常用别名"></a>设置常用别名</h2><p>git config <code>--</code>global alias.co checkout<br>git config <code>--</code>global alias.ci commit<br>git config <code>--</code>global alias.br branch<br>git config <code>--</code>global alias.unstage ‘reset HEAD’<br>git config <code>--</code>global alias.last ‘log -1’<br>git config <code>--</code>global alias.lg “log –color –graph –pretty&#x3D;format:’%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset’ –abbrev-commit”</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>git status 查看本地文件状态<br>git add 加入暂存区<br>git commit -m “why commit” 提交到仓库<br>git commit <code>--</code> amend -m “123” 撤销上次提交<br>git pull origin master 从远程仓库获取最新版本（解决冲突）<br>git push origin master 推送本地修改到远程仓库<br>git tag v1.0.1 给本地修改仓库打上tag（这个每次大的提交都非常有必要打包）<br>git push origin v1.0.1 推送本地修改版本到远程仓库<br>git reflog 打印你的每一次命令（用于版本回退非常牛）<br>git reset <code>--</code>hard HEAD^ 回退到上一版本（后面换成HEAD^100 回退到上100个版本）<br>git reset <code>--</code>hard 版本ID 回退到想要的版本</p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p>echo “A article” &gt;&gt; readme.txt                                        在readme.txt中新添加一行<br>echo “LICENSE is a new file.” &gt; LICENSE                               新增一个文件<br>cat readme.txt                                                        查看文件<br>rm readme.txt（如果删除错了文件可用 git checkout – readme.txt恢复）       删除文件</p>
+<h2 id="对暂存区和工作区的操作"><a href="#对暂存区和工作区的操作" class="headerlink" title="对暂存区和工作区的操作"></a>对暂存区和工作区的操作</h2><p>git checkout – readme.txt（别名） 丢弃工作区的修改<br>git unstage(别名)                丢弃暂存区的修改</p>
+<h2 id="commit之前，优化提交打印"><a href="#commit之前，优化提交打印" class="headerlink" title="commit之前，优化提交打印"></a>commit之前，优化提交打印</h2><p>git log 查看之前commit的所有打印(如果前3个都是打印的乱七八糟的)<br>git reset HEAD~3 退回<br>git log(再次查看发现退回到第4个)<br>git add -A<br>git commit -m “最终优化版本”<br>git push origin dev 这样就直接合并了前3次的打印为最终优化版本</p>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>git push origin :dev    删除远程dev分支<br>git push origin dev:dev 提交本地dev分支为远程dev分支（创建远程分支并合并本地分支到远程分支）</p>
+<h2 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h2><p>git checkout master         切换到master分支<br>git merge dev               merge 哎呀冲突了<br>git log                     这时候打开master中冲突文件，删掉冲突的代码<br>git add -A                  重新加入暂存<br>git commit -m ‘修改的代码’    重新提交<br>git push origin master      推送到远程仓库</p>
+<h2 id="设置分支为开发分支"><a href="#设置分支为开发分支" class="headerlink" title="设置分支为开发分支"></a>设置分支为开发分支</h2><p>git push –set-upstream origin dev-1.0.0 设置之后可以使用git pull或git push直接拉取当前版本分支的代码</p>
+<h2 id="其他人修改并push代码到远程dev分支"><a href="#其他人修改并push代码到远程dev分支" class="headerlink" title="其他人修改并push代码到远程dev分支"></a>其他人修改并push代码到远程dev分支</h2><p>git stash                     暂存本地修改<br>git pull –rebase origin dev  从远程拉下同事代码<br>git stash pop                 删除暂存</p>
+<h2 id="公钥和私钥存在于当前目录下的-ssh目录id-rsa-和-id-rsa-pub"><a href="#公钥和私钥存在于当前目录下的-ssh目录id-rsa-和-id-rsa-pub" class="headerlink" title="公钥和私钥存在于当前目录下的.ssh目录id_rsa 和 id_rsa.pub"></a>公钥和私钥存在于当前目录下的.ssh目录id_rsa 和 id_rsa.pub</h2><p>ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#x6f;&#x75;&#114;&#101;&#x6d;&#97;&#x69;&#x6c;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#111;&#x6d;">&#x79;&#x6f;&#x75;&#114;&#101;&#x6d;&#97;&#x69;&#x6c;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#111;&#x6d;</a>“                      创建SSH Key 然后一路回车（登陆Github传上去）<br>git remote add origin <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;</a>:buildlove&#x2F;learngit.git       关联远程仓库<br>git push -u origin master                                         推送本地提交到远程master仓库（第一次提交需要加-u）<br>git clone <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;">&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;</a>:buildlove&#x2F;learngit.git                   克隆一个远程仓库到本地<br>git pull origin master                                            从远程仓库拉下代码如果有冲突，本地手动解决</p>
+<h2 id="删除远程文件"><a href="#删除远程文件" class="headerlink" title="删除远程文件"></a>删除远程文件</h2><p>git rm -r -n <code>--</code>cached  *&#x2F;node_module&#x2F;*    加上-n这个参数，执行命令时，是不会删除任何文件，要预览删除的文件列表。<br>git rm -r -f <code>--</code>cached *&#x2F;node_module&#x2F;*      删除跟踪状态<br>git rm *&#x2F;node_module&#x2F;* -r -f               删除文件<br>git commit -m “移除src目录下所有文件的版本控制”  提交<br>git push origin master                      提交到远程服务器</p>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>git branch                查看所有分支<br>git branch dev            创建分支<br>git co -b dev (别名)      创建一个dev分支并切换到dev分支<br>git co                    切换分支<br>git merge <code>--</code>no-ff branch-B 可以将某一分支branch-B合并到分支branch-A并将合并记录提交到历史记录中去,但在合并前必须先切换到分支branch-A。<br>git branch -d dev         删除dev分支</p>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>git tag                                查看所有本地tag标签<br>git tag v1.0                           给最新提交的commit打上v1.0标签<br>git tag -d v0.1                        删除标签<br>git tag v0.9 6224937                   给id&#x3D;6224937打上标签 v0.9<br>git tag -a v0.1 -m “理由” 6224937      打上标签加上原因<br>git show v0.1                          查看v0.1说明文字<br>git push origin v1.0                   推送标签到远程<br>git push origin :refs&#x2F;tags&#x2F;v0.9        删除远程标签<br>git log <code>--</code>pretty&#x3D;oneline <code>--</code>abbrev-commit查看标签绑定的提交</p>
+<h2 id="自定义git"><a href="#自定义git" class="headerlink" title="自定义git"></a>自定义git</h2><p>git config <code>--</code>global color.ui true                 配置颜色<br>.gitignore    <a target="_blank" rel="noopener" href="https://github.com/github/gitignore">https://github.com/github/gitignore</a> 忽略文档<br>git config <code>--</code>global alias.st status               设置别名格式<br>cat .git&#x2F;config                                   查看git配置（要删除别名 找到alias之后的别名删除即可）</p>
+<h2 id="修改项目根目录下-git-x2F-config配置文件"><a href="#修改项目根目录下-git-x2F-config配置文件" class="headerlink" title="修改项目根目录下.git&#x2F;config配置文件"></a>修改项目根目录下.git&#x2F;config配置文件</h2><p>也能找到全局目录下的git配置文件直接配置</p>
+<p>git init 在目录下配置.git文件<br>[core]<br>  repositoryformatversion &#x3D; 0 版本库格式<br>  filemode &#x3D; false<br>  bare &#x3D; false<br>  logallrefupdates &#x3D; true<br>  symlinks &#x3D; false<br>  ignorecase &#x3D; true<br>  hideDotFiles &#x3D; dotGitOnly<br>[remote “origin”]<br>  url &#x3D; <a target="_blank" rel="noopener" href="https://github.com/git/git.git">https://github.com/git/git.git</a>  这个为自己的git仓库url<br>  fetch &#x3D; +refs&#x2F;heads&#x2F;<em>:refs&#x2F;remotes&#x2F;origin&#x2F;</em><br>[branch “master”]<br>  remote &#x3D; origin           git分支<br>  merge &#x3D; refs&#x2F;heads&#x2F;master<br>[user]                      用户自己的个人信息<br>  email &#x3D; <a href="mailto:&#109;&#107;&#100;&#105;&#114;&#95;&#121;&#x61;&#x6e;&#x67;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;">&#109;&#107;&#100;&#105;&#114;&#95;&#121;&#x61;&#x6e;&#x67;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;</a><br>  name &#x3D; buildlove<br>[gui]<br>  wmstate &#x3D; normal<br>  geometry &#x3D; 799x475+200+200 159 214<br>[alias]                      设置的别名,一般别名都设置成全局的<br>  co &#x3D; checkout</p>
 
-<div class="next">
-<a href="/2015/11/08/photoshop/"  title="photoshop">
- <strong>下一篇:</strong><br/> 
- <span>photoshop
-</span>
-</a>
-</div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2015/12/08/Git/" data-id="cl847k8yj0001zbz187tnfj4z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" rel="tag">分布式版本管理工具</a></li></ul>
 
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/21/ubuntu/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ubuntu14.10遇到的问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/08/photoshop/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">photoshop</div>
+    </a>
+  
 </nav>
 
-	
-<section class="comment">
-	<div class="ds-thread"></div>
+  
+</article>
+
 </section>
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%B8%B8%E7%94%A8%E5%88%AB%E5%90%8D"><span class="toc-number">1.</span> <span class="toc-text">设置常用别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">对暂存区和工作区的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#commit%E4%B9%8B%E5%89%8D%EF%BC%8C%E4%BC%98%E5%8C%96%E6%8F%90%E4%BA%A4%E6%89%93%E5%8D%B0"><span class="toc-number">5.</span> <span class="toc-text">commit之前，优化提交打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">6.</span> <span class="toc-text">远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-number">7.</span> <span class="toc-text">解决冲突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%88%86%E6%94%AF%E4%B8%BA%E5%BC%80%E5%8F%91%E5%88%86%E6%94%AF"><span class="toc-number">8.</span> <span class="toc-text">设置分支为开发分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E4%BA%BA%E4%BF%AE%E6%94%B9%E5%B9%B6push%E4%BB%A3%E7%A0%81%E5%88%B0%E8%BF%9C%E7%A8%8Bdev%E5%88%86%E6%94%AF"><span class="toc-number">9.</span> <span class="toc-text">其他人修改并push代码到远程dev分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84-ssh%E7%9B%AE%E5%BD%95id_rsa_%E5%92%8C_id_rsa-pub"><span class="toc-number">10.</span> <span class="toc-text">公钥和私钥存在于当前目录下的.ssh目录id_rsa 和 id_rsa.pub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6"><span class="toc-number">11.</span> <span class="toc-text">删除远程文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="toc-number">12.</span> <span class="toc-text">分支管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE"><span class="toc-number">13.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89git"><span class="toc-number">14.</span> <span class="toc-text">自定义git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B-git/config%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">15.</span> <span class="toc-text">修改项目根目录下.git&#x2F;config配置文件</span></a></li></ol>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git-difftool-Beyond-Compare/">git difftool(Beyond Compare)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo%E5%AD%A6%E4%B9%A0%E9%85%8D%E7%BD%AE/">hexo学习配置</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-npm%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E5%92%8C%E6%8F%92%E4%BB%B6/">node&npm命令行参数和插件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">分布式版本管理工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%98%E5%9B%BE/">绘图</a></li></ul>
+    </div>
   </div>
 
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
-<aside class="clearfix">
 
   
-<div class="categorieslist">
-	<p class="asidetitle">Categories</p>
-		<ul>
-		
-			<li><a href="/categories/database/" title="database">database<sup>1</sup></a></li>
-		
-			<li><a href="/categories/git-difftool-Beyond-Compare/" title="git difftool(Beyond Compare)">git difftool(Beyond Compare)<sup>1</sup></a></li>
-		
-			<li><a href="/categories/hexo学习配置/" title="hexo学习配置">hexo学习配置<sup>1</sup></a></li>
-		
-			<li><a href="/categories/linux/" title="linux">linux<sup>1</sup></a></li>
-		
-			<li><a href="/categories/node-npm命令行参数和插件/" title="node&amp;npm命令行参数和插件">node&amp;npm命令行参数和插件<sup>1</sup></a></li>
-		
-			<li><a href="/categories/python/" title="python">python<sup>1</sup></a></li>
-		
-			<li><a href="/categories/分布式版本管理工具/" title="分布式版本管理工具">分布式版本管理工具<sup>1</sup></a></li>
-		
-			<li><a href="/categories/数据库/" title="数据库">数据库<sup>1</sup></a></li>
-		
-			<li><a href="/categories/绘图/" title="绘图">绘图<sup>1</sup></a></li>
-		
-		</ul>
-</div>
-
-
-  
-<div class="tagslist">
-	<p class="asidetitle">Tags</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/database/" title="database">database<sup>2</sup></a></li>
-		
-			<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
-		
-			<li><a href="/tags/hexo/" title="hexo">hexo<sup>3</sup></a></li>
-		
-			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
-		
-			<li><a href="/tags/linux/" title="linux">linux<sup>1</sup></a></li>
-		
-			<li><a href="/tags/mac/" title="mac">mac<sup>1</sup></a></li>
-		
-			<li><a href="/tags/mongodb/" title="mongodb">mongodb<sup>1</sup></a></li>
-		
-			<li><a href="/tags/mysql/" title="mysql">mysql<sup>1</sup></a></li>
-		
-			<li><a href="/tags/node/" title="node">node<sup>1</sup></a></li>
-		
-			<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
-		
-			<li><a href="/tags/photo/" title="photo">photo<sup>1</sup></a></li>
-		
-			<li><a href="/tags/ps/" title="ps">ps<sup>1</sup></a></li>
-		
-			<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
-		
-			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
-		
-			<li><a href="/tags/vue/" title="vue">vue<sup>1</sup></a></li>
-		
-			<li><a href="/tags/分布式版本管理工具/" title="分布式版本管理工具">分布式版本管理工具<sup>1</sup></a></li>
-		
-		</ul>
-</div>
-
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
-</div>
-
-</aside>
-</div>
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/" rel="tag">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photo/" rel="tag">photo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps/" rel="tag">ps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" rel="tag">分布式版本管理工具</a></li></ul>
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello ,I&#39;m Liyang Page in Honglian. <br/>
-			This is my blog,believe it or not.</p>
-	</section>
-	 
-	<div class="social-font clearfix">
-		
-		<a href="http://weibo.com/1954002307" target="_blank" title="weibo"></a>
-		
-		
-		<a href="https://twitter.com/564845354" target="_blank" title="twitter"></a>
-		
-		
-		<a href="https://github.com/buildlove" target="_blank" title="github"></a>
-		
-		
-		<a href="https://www.facebook.com/profile.php?id=100008166199067" target="_blank" title="facebook"></a>
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2022 
-		
-		<a href="http://buildlove.github.io" target="_blank" title="Screenshot 2015">Screenshot 2015</a>
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/database/" style="font-size: 15px;">database</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/ps/" style="font-size: 10px;">ps</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">分布式版本管理工具</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
         
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
-</script>
+          <li>
+            <a href="/2018/06/27/vue-webpack-pro/">一个简单的 vue 项目</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/27/es6-checked/">es6标准化检测</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/27/map-spider/">地图瓦片在线爬取</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/27/module-common/">js模块加载标准</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/09/hexo/">hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
-</script>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});     
-</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"buildlove"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
 
 
 
-  </body>
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
 </html>
