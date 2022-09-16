@@ -1,3 +1,4 @@
+http://buildlove.github.io/about/index.html
 http://buildlove.github.io/2015/12/08/Git/
 http://buildlove.github.io/2016/03/08/python/
 http://buildlove.github.io/2015/12/21/ubuntu/
@@ -12,7 +13,6 @@ http://buildlove.github.io/2016/11/09/hexo/
 http://buildlove.github.io/2016/10/08/git-difftool/
 http://buildlove.github.io/2018/04/27/es6-checked/
 http://buildlove.github.io/2016/08/24/database/
-http://buildlove.github.io/about/index.html
 http://buildlove.github.io/README.html
 http://buildlove.github.io/search/index.html
 http://buildlove.github.io/404.html
