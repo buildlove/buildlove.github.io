@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://buildlove.github.io/about/index.html</loc>
+    <loc>http://buildlove.github.io/2015/12/08/Git/</loc>
     
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://buildlove.github.io/2015/12/08/Git/</loc>
+    <loc>http://buildlove.github.io/about/index.html</loc>
     
-    <lastmod>2020-08-20</lastmod>
+    <lastmod>2022-09-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -184,120 +184,120 @@
 
   <url>
     <loc>http://buildlove.github.io/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://buildlove.github.io/tags/database/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <loc>http://buildlove.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://buildlove.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <loc>http://buildlove.github.io/tags/database/</loc>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/tags/hexo/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/tags/git/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/tags/python/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/tags/mac/</loc>
-    <lastmod>2022-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buildlove.github.io/tags/mongodb/</loc>
-    <lastmod>2022-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buildlove.github.io/tags/npm/</loc>
-    <lastmod>2022-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buildlove.github.io/tags/node/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/tags/js/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buildlove.github.io/tags/mongodb/</loc>
+    <lastmod>2024-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buildlove.github.io/tags/npm/</loc>
+    <lastmod>2024-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buildlove.github.io/tags/node/</loc>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/tags/ps/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/tags/photo/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/tags/mysql/</loc>
-    <lastmod>2022-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buildlove.github.io/tags/linux/</loc>
-    <lastmod>2022-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buildlove.github.io/tags/ubuntu/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/tags/vue/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buildlove.github.io/tags/linux/</loc>
+    <lastmod>2024-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buildlove.github.io/tags/ubuntu/</loc>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -305,64 +305,64 @@
 
   
   <url>
-    <loc>http://buildlove.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <loc>http://buildlove.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://buildlove.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <loc>http://buildlove.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/categories/git-difftool-Beyond-Compare/</loc>
-    <lastmod>2022-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buildlove.github.io/categories/hexo%E5%AD%A6%E4%B9%A0%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/categories/python/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buildlove.github.io/categories/hexo%E5%AD%A6%E4%B9%A0%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/categories/database/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/categories/node-npm%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E5%92%8C%E6%8F%92%E4%BB%B6/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/categories/%E7%BB%98%E5%9B%BE/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://buildlove.github.io/categories/linux/</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2024-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
